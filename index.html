@@ -5,132 +5,146 @@
 <title>YOUNG TEE DAILY PLUGS</title>
 
 <style>
-/* ===== GLOBAL ===== */
-body {
+html, body {
   margin: 0;
-  min-height: 100vh;
+  padding: 0;
+  height: 100%;
   width: 100%;
   font-family: "Segoe UI", Arial, sans-serif;
+}
 
-  background-image: url("https://on.bwmxmd.co.ke/5llm7f.jpg");
+body {
+  background: url("https://on.bwmxmd.co.ke/5llm7f.jpg") no-repeat center center fixed;
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
   background-color: rgba(0,0,0,0.75);
   background-blend-mode: darken;
-
   color: white;
 }
 
-/* ===== MAIN WRAPPER ===== */
+/* FULL SCREEN WRAPPER */
 .main {
   min-height: 100vh;
   width: 100%;
-  padding: 40px 20px 80px;
+  padding: 50px 30px 80px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* ===== HEADINGS ===== */
+/* TITLE */
 h1 {
+  font-size: 42px;
   text-align: center;
-  font-size: 34px;
-  margin-bottom: 25px;
-  letter-spacing: 2px;
+  margin-bottom: 40px;
+  letter-spacing: 3px;
 }
 
-h2 {
-  font-size: 22px;
-  margin: 0;
-}
-
-/* ===== SECTION SELECT ===== */
+/* SECTION SELECT BUTTONS */
 .section-select {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin-bottom: 35px;
+  gap: 20px;
+  margin-bottom: 50px;
   flex-wrap: wrap;
 }
 
 .section-select button {
-  padding: 14px 26px;
-  font-size: 16px;
+  padding: 16px 32px;
+  font-size: 18px;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   background: #1e90ff;
-  color: white;
   cursor: pointer;
+  color: white;
+  transition: transform 0.2s;
 }
 
-/* ===== SECTIONS ===== */
+.section-select button:hover {
+  transform: scale(1.05);
+}
+
+/* SECTIONS */
 .section {
   display: none;
-  max-width: 900px;
-  margin: auto;
+  width: 100%;
+  max-width: 1000px;
 }
 
 .section.active {
   display: block;
 }
 
-/* ===== SECTION HEADER ===== */
+/* SECTION HEADER */
 .section-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
+  gap: 15px;
+  margin-bottom: 25px;
 }
 
 .section-header img {
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: 36px;
 }
 
-/* ===== FILE CARD ===== */
+h2 {
+  font-size: 26px;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+/* FILE CARD */
 .file {
   background: rgba(0,0,0,0.6);
-  border-radius: 16px;
-  padding: 18px;
-  margin-bottom: 18px;
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .file-name {
-  font-size: 18px;
-  margin-bottom: 14px;
+  font-size: 20px;
+  margin-bottom: 0;
 }
 
-/* ===== DOWNLOAD BUTTON ===== */
+/* DOWNLOAD BUTTON */
 .download-btn {
-  display: inline-block;
-  padding: 12px 28px;
+  padding: 14px 30px;
+  font-size: 18px;
+  border-radius: 12px;
+  text-decoration: none;
   background: #1e90ff;
   color: white;
-  text-decoration: none;
-  border-radius: 10px;
-  font-size: 16px;
+  transition: transform 0.2s;
 }
 
-/* ===== CONTACT ===== */
+.download-btn:hover {
+  transform: scale(1.05);
+}
+
+/* CONTACT */
 .contact {
-  margin-top: 70px;
-  padding-top: 30px;
-  border-top: 1px solid rgba(255,255,255,0.3);
+  margin-top: 80px;
   text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.3);
+  padding-top: 30px;
 }
 
 .contact a {
-  color: #1e90ff;
   display: block;
+  font-size: 18px;
   margin-bottom: 12px;
-  font-size: 16px;
   text-decoration: none;
+  color: #1e90ff;
 }
 </style>
 </head>
 
 <body>
-
 <div class="main">
 
 <h1>YOUNG TEE DAILY PLUGS</h1>
@@ -143,7 +157,7 @@ h2 {
 <!-- HA SECTION -->
 <div id="ha" class="section active">
   <div class="section-header">
-    <img src="https://on.bwmxmd.co.ke/h2tob8.jpg">
+    <img src="https://on.bwmxmd.co.ke/h2tob8.jpg" alt="HA">
     <h2>HA TUNNEL FILES</h2>
   </div>
   <div id="ha-files"></div>
@@ -152,7 +166,7 @@ h2 {
 <!-- TLS SECTION -->
 <div id="tls" class="section">
   <div class="section-header">
-    <img src="https://on.bwmxmd.co.ke/g791vt.png">
+    <img src="https://on.bwmxmd.co.ke/g791vt.png" alt="TLS">
     <h2>TLS TUNNEL FILES</h2>
   </div>
   <div id="tls-files"></div>
@@ -173,6 +187,7 @@ function showSection(id) {
   document.getElementById(id).classList.add('active');
 }
 
+// Load files from JSON
 fetch('files.json')
   .then(res => res.json())
   .then(files => {
@@ -183,15 +198,13 @@ fetch('files.json')
         <div class="file-name">${file.name}</div>
         <a class="download-btn" href="${file.link}" target="_blank">DOWNLOAD</a>
       `;
-
-      if (file.type === 'hat') {
+      if(file.type === 'hat') {
         document.getElementById('ha-files').appendChild(box);
-      } else if (file.type === 'tls') {
+      } else if(file.type === 'tls') {
         document.getElementById('tls-files').appendChild(box);
       }
     });
   });
 </script>
-
 </body>
 </html>
