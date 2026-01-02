@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>YOUNG TEE DAILY PLUGS</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-image: url("https://on.bwmxmd.co.ke/5llm7f.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0,0,0,0.65);
+  background-blend-mode: darken;
+  color: white;
+  padding: 40px 15px;
+}
+
+h1 {
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+}
+
+/* SECTION SELECT BUTTONS */
+.section-select {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.section-select button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #1e90ff;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* SECTIONS */
+.section {
+  display: none;
+  margin-bottom: 50px;
+}
+
+.section.active {
+  display: block;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.section-header img {
+  width: 26px;
+  height: 26px;
+}
+
+.section-header h2 {
+  font-size: 18px;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.file {
+  background: rgba(0,0,0,0.6);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.file-name {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.download-btn {
+  display: inline-block;
+  padding: 10px 22px;
+  background: #1e90ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* CONTACT */
+.contact {
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.3);
+  text-align: center;
+}
+
+.contact h3 {
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.contact a {
+  color: #1e90ff;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>YOUNG TEE DAILY PLUGS</h1>
+
+<!-- SECTION SELECTOR -->
+<div class="section-select">
+  <button onclick="showSection('ha')">HA TUNNEL FILES</button>
+  <button onclick="showSection('tls')">TLS TUNNEL FILES</button>
+</div>
+
+<!-- HA SECTION -->
+<div id="ha" class="section active">
+  <div class="section-header">
+    <img src="https://on.bwmxmd.co.ke/h2tob8.jpg">
+    <h2>HA TUNNEL FILES</h2>
+  </div>
+
+  <div class="file">
+    <div class="file-name">MTN-ZA 🇿🇦 500MB DAILY</div>
+    <a class="download-btn" href="https://www.mediafire.com/file/48vuqjrka7e9iby/MTN-ZA%25F0%259F%2587%25BF%25F0%259F%2587%25A6500MB_DAILY%255B2026%255D.hat/file" target="_blank">DOWNLOAD</a>
+  </div>
+
+  <div class="file">
+    <div class="file-name">MTN-ZA 🇿🇦 300MB DAILY</div>
+    <a class="download-btn" href="https://www.mediafire.com/file/hcdbjom3jg4bgpg/MTN-ZA%25F0%259F%2587%25BF%25F0%259F%2587%25A6300MB_DAILY.hat/file" target="_blank">DOWNLOAD</a>
+  </div>
+
+  <div class="file">
+    <div class="file-name">MTNSA 🇿🇦 200MB DAILY</div>
+    <a class="download-btn" href="https://www.mediafire.com/file/2c6rqbjch30pk1q/MTN-ZA%25F0%259F%2587%25BF%25F0%259F%2587%25A6200MB_DAILY.hat/file" target="_blank">DOWNLOAD</a>
+  </div>
+</div>
+
+<!-- TLS SECTION -->
+<div id="tls" class="section">
+  <div class="section-header">
+    <img src="https://on.bwmxmd.co.ke/g791vt.png">
+    <h2>TLS TUNNEL FILES</h2>
+  </div>
+
+  <div class="file">
+    <div class="file-name">MTNSA 🇿🇦 500MB DAILY</div>
+    <a class="download-btn" href="https://www.mediafire.com/file/cet8elfx8phfqub/MTNSA%25F0%259F%2587%25BF%25F0%259F%2587%25A6500MB_%255BYOUNG_TEE%255D.tls/file" target="_blank">DOWNLOAD</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact">
+  <h3>CONTACT</h3>
+
+  <a href="https://wa.me/27634179556" target="_blank">
+    WhatsApp: +27 63 417 9556
+  </a>
+
+  <a href="mailto:youngtee090934@gmail.com">
+    Email: youngtee090934@gmail.com
+  </a>
+
+  <a href="https://whatsapp.com/channel/0029VbCJbOF1dAvyOmf31L2G" target="_blank">
+    WhatsApp Channel
+  </a>
+</div>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(sec => {
+    sec.classList.remove('active');
+  });
+  document.getElementById(id).classList.add('active');
+}
+</script>
+
+</body>
+</html>
