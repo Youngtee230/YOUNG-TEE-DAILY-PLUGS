@@ -3,16 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <title>YOUNG TEE DAILY PLUGS</title>
-  
-  <!-- Google tag (gtag.js) -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MS98R2H51T"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-MS98R2H51T');
 </script>
+
 <style>
 html, body {
   margin: 0;
@@ -50,30 +51,45 @@ h1 {
   margin-bottom: 5vh;
 }
 
-/* SECTION BUTTONS */
-.section-select {
-  display: flex;
-  justify-content: center;
-  gap: 3vw;
-  margin-bottom: 5vh;
-  flex-wrap: wrap;
+/* HAMBURGER MENU */
+.menu-btn {
+  position: fixed;
+  top: 2vh;
+  left: 2vh;
+  font-size: 8vw;
+  font-weight: 900;
+  cursor: pointer;
+  z-index: 1000;
+  color: white;
 }
 
-.section-select button {
-  padding: 2vh 4vw;       /* BIG BUTTONS */
-  font-size: 3vw;         /* BIG & responsive */
-  font-weight: 900;       /* BOLD */
-  border-radius: 1vw;
-  border: none;
-  background: #1e90ff;
+.menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 70%;
+  height: 100%;
+  background: rgba(0,0,0,0.95);
+  transition: 0.3s;
+  padding-top: 10vh;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+}
+
+.menu.open { left: 0; }
+
+.menu a {
+  font-size: 5vw;
+  font-weight: 900;
   color: white;
-  cursor: pointer;
+  text-decoration: none;
+  padding: 1.5vh 3vw;
   transition: transform 0.2s;
 }
 
-.section-select button:hover {
-  transform: scale(1.05);
-}
+.menu a:hover { transform: scale(1.05); }
 
 /* SECTIONS */
 .section { display: none; }
@@ -151,14 +167,18 @@ h2 {
 </head>
 
 <body>
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<div class="menu" id="menu">
+  <a onclick="showSection('ha'); toggleMenu()">HA TUNNEL FILES</a>
+  <a onclick="showSection('tls'); toggleMenu()">TLS TUNNEL FILES</a>
+  <a onclick="showSection('linklayer'); toggleMenu()">LINKLAYER VPN FILES</a>
+  <a onclick="showSection('httpcustom'); toggleMenu()">HTTP CUSTOM FILES</a>
+</div>
+
 <div class="main">
 
 <h1>YOUNG TEE DAILY PLUGS</h1>
-
-<div class="section-select">
-  <button onclick="showSection('ha')">HA TUNNEL FILES</button>
-  <button onclick="showSection('tls')">TLS TUNNEL FILES</button>
-</div>
 
 <!-- HA SECTION -->
 <div id="ha" class="section active">
@@ -178,6 +198,24 @@ h2 {
   <div id="tls-files"></div>
 </div>
 
+<!-- LINKLAYER SECTION -->
+<div id="linklayer" class="section">
+  <div class="section-header">
+    <img src="https://on.bwmxmd.co.ke/103i3r.png" alt="LinkLayer">
+    <h2>LINKLAYER VPN FILES</h2>
+  </div>
+  <div id="linklayer-files"></div>
+</div>
+
+<!-- HTTP CUSTOM SECTION -->
+<div id="httpcustom" class="section">
+  <div class="section-header">
+    <img src="https://on.bwmxmd.co.ke/lbk1c2.png" alt="HTTP Custom">
+    <h2>HTTP CUSTOM FILES</h2>
+  </div>
+  <div id="httpcustom-files"></div>
+</div>
+
 <!-- CONTACT -->
 <div class="contact">
   <a href="https://wa.me/27634179556" target="_blank">WhatsApp: +27 63 417 9556</a>
@@ -188,12 +226,16 @@ h2 {
 </div>
 
 <script>
+function toggleMenu() {
+  document.getElementById('menu').classList.toggle('open');
+}
+
 function showSection(id) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
 
-// Load files dynamically
+// Load files dynamically from type-based JSON
 fetch('files.json')
   .then(res => res.json())
   .then(files => {
@@ -204,10 +246,15 @@ fetch('files.json')
         <div class="file-name">${file.name}</div>
         <a class="download-btn" href="${file.link}" target="_blank">DOWNLOAD</a>
       `;
+
       if(file.type === 'hat') {
         document.getElementById('ha-files').appendChild(box);
       } else if(file.type === 'tls') {
         document.getElementById('tls-files').appendChild(box);
+      } else if(file.type === 'ink') {
+        document.getElementById('linklayer-files').appendChild(box);
+      } else if(file.type === 'hc') {
+        document.getElementById('httpcustom-files').appendChild(box);
       }
     });
   });
