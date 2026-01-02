@@ -16,59 +16,51 @@ html, body {
 body {
   background: url("https://on.bwmxmd.co.ke/5llm7f.jpg") no-repeat center center fixed;
   background-size: cover;
-  background-color: rgba(0,0,0,0.75);
+  background-color: rgba(0,0,0,0.6);
   background-blend-mode: darken;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* FULL SCREEN WRAPPER */
 .main {
-  min-height: 100vh;
-  width: 100%;
-  padding: 50px 30px 80px;
+  width: 90%;
+  max-width: 700px; /* Match the frame of your background */
+  padding: 40px;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
 }
 
 /* TITLE */
 h1 {
-  font-size: 42px;
-  text-align: center;
-  margin-bottom: 40px;
-  letter-spacing: 3px;
+  font-size: 36px;
+  margin-bottom: 35px;
+  letter-spacing: 2px;
 }
 
 /* SECTION SELECT BUTTONS */
 .section-select {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  margin-bottom: 50px;
+  gap: 15px;
+  margin-bottom: 40px;
   flex-wrap: wrap;
 }
 
 .section-select button {
-  padding: 16px 32px;
-  font-size: 18px;
+  padding: 12px 28px;
+  font-size: 16px;
   border: none;
-  border-radius: 12px;
+  border-radius: 10px;
   background: #1e90ff;
-  cursor: pointer;
   color: white;
-  transition: transform 0.2s;
-}
-
-.section-select button:hover {
-  transform: scale(1.05);
+  cursor: pointer;
 }
 
 /* SECTIONS */
 .section {
   display: none;
-  width: 100%;
-  max-width: 1000px;
 }
 
 .section.active {
@@ -79,67 +71,59 @@ h1 {
 .section-header {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-bottom: 25px;
+  gap: 12px;
+  margin-bottom: 20px;
+  justify-content: center;
 }
 
 .section-header img {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
 }
 
 h2 {
-  font-size: 26px;
-  letter-spacing: 2px;
+  font-size: 22px;
   margin: 0;
 }
 
 /* FILE CARD */
 .file {
   background: rgba(0,0,0,0.6);
-  border-radius: 18px;
-  padding: 20px;
-  margin-bottom: 20px;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 16px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
 }
 
 .file-name {
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 0;
 }
 
 /* DOWNLOAD BUTTON */
 .download-btn {
-  padding: 14px 30px;
-  font-size: 18px;
-  border-radius: 12px;
+  padding: 10px 24px;
+  font-size: 16px;
+  border-radius: 8px;
   text-decoration: none;
   background: #1e90ff;
   color: white;
-  transition: transform 0.2s;
-}
-
-.download-btn:hover {
-  transform: scale(1.05);
 }
 
 /* CONTACT */
 .contact {
-  margin-top: 80px;
-  text-align: center;
+  margin-top: 50px;
   border-top: 1px solid rgba(255,255,255,0.3);
-  padding-top: 30px;
+  padding-top: 20px;
 }
 
 .contact a {
   display: block;
-  font-size: 18px;
-  margin-bottom: 12px;
-  text-decoration: none;
+  margin-bottom: 8px;
   color: #1e90ff;
+  text-decoration: none;
 }
 </style>
 </head>
@@ -172,7 +156,6 @@ h2 {
   <div id="tls-files"></div>
 </div>
 
-<!-- CONTACT -->
 <div class="contact">
   <a href="https://wa.me/27634179556" target="_blank">WhatsApp: +27 63 417 9556</a>
   <a href="mailto:youngtee090934@gmail.com">Email: youngtee090934@gmail.com</a>
@@ -187,7 +170,6 @@ function showSection(id) {
   document.getElementById(id).classList.add('active');
 }
 
-// Load files from JSON
 fetch('files.json')
   .then(res => res.json())
   .then(files => {
