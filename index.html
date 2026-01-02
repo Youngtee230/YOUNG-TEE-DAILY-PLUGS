@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>YOUNG TEE DAILY PLUGS</title>
-
 <style>
 html, body {
   margin: 0;
@@ -13,49 +12,56 @@ html, body {
   font-family: "Segoe UI", Arial, sans-serif;
 }
 
+/* BACKGROUND FULL SCREEN */
 body {
   background: url("https://on.bwmxmd.co.ke/5llm7f.jpg") no-repeat center center fixed;
   background-size: cover;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0,0,0,0.5);
   background-blend-mode: darken;
-  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
 }
 
+/* MAIN CONTENT CENTERED */
 .main {
   width: 90%;
-  max-width: 700px; /* Match the frame of your background */
-  padding: 40px;
-  box-sizing: border-box;
+  max-width: 1200px;
   text-align: center;
 }
 
 /* TITLE */
 h1 {
-  font-size: 36px;
-  margin-bottom: 35px;
-  letter-spacing: 2px;
+  font-size: 10vw; /* BIG & scales with viewport width */
+  font-weight: 900;
+  letter-spacing: 2vw;
+  margin-bottom: 5vh;
 }
 
 /* SECTION SELECT BUTTONS */
 .section-select {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin-bottom: 40px;
+  gap: 3vw;
+  margin-bottom: 5vh;
   flex-wrap: wrap;
 }
 
 .section-select button {
-  padding: 12px 28px;
-  font-size: 16px;
+  padding: 1.5vh 3vw;
+  font-size: 2.5vw; /* SCALES with screen */
+  font-weight: bold;
   border: none;
-  border-radius: 10px;
+  border-radius: 1vw;
   background: #1e90ff;
   color: white;
   cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.section-select button:hover {
+  transform: scale(1.05);
 }
 
 /* SECTIONS */
@@ -71,59 +77,69 @@ h1 {
 .section-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
   justify-content: center;
+  gap: 2vw;
+  margin-bottom: 3vh;
 }
 
 .section-header img {
-  width: 32px;
-  height: 32px;
+  width: 5vw;
+  height: 5vw;
 }
 
 h2 {
-  font-size: 22px;
+  font-size: 5vw; /* BIG, scales with screen */
+  font-weight: 900;
   margin: 0;
 }
 
-/* FILE CARD */
+/* FILE CARDS */
 .file {
-  background: rgba(0,0,0,0.6);
-  border-radius: 14px;
-  padding: 16px;
-  margin-bottom: 16px;
+  background: rgba(0,0,0,0.7);
+  border-radius: 1vw;
+  padding: 1.5vh 2vw;
+  margin-bottom: 2vh;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
 .file-name {
-  font-size: 18px;
+  font-size: 2.5vw; /* BIG & bold */
+  font-weight: bold;
   margin-bottom: 0;
 }
 
 /* DOWNLOAD BUTTON */
 .download-btn {
-  padding: 10px 24px;
-  font-size: 16px;
-  border-radius: 8px;
+  padding: 1vh 2vw;
+  font-size: 2.5vw;
+  font-weight: bold;
+  border-radius: 1vw;
   text-decoration: none;
   background: #1e90ff;
   color: white;
+  transition: transform 0.2s;
+}
+
+.download-btn:hover {
+  transform: scale(1.05);
 }
 
 /* CONTACT */
 .contact {
-  margin-top: 50px;
-  border-top: 1px solid rgba(255,255,255,0.3);
-  padding-top: 20px;
+  margin-top: 5vh;
+  border-top: 0.2vh solid rgba(255,255,255,0.3);
+  padding-top: 2vh;
 }
 
 .contact a {
   display: block;
-  margin-bottom: 8px;
-  color: #1e90ff;
+  font-size: 2.5vw;
+  font-weight: bold;
+  margin-bottom: 1vh;
   text-decoration: none;
+  color: #1e90ff;
 }
 </style>
 </head>
@@ -156,6 +172,7 @@ h2 {
   <div id="tls-files"></div>
 </div>
 
+<!-- CONTACT -->
 <div class="contact">
   <a href="https://wa.me/27634179556" target="_blank">WhatsApp: +27 63 417 9556</a>
   <a href="mailto:youngtee090934@gmail.com">Email: youngtee090934@gmail.com</a>
@@ -170,6 +187,7 @@ function showSection(id) {
   document.getElementById(id).classList.add('active');
 }
 
+// Load files from JSON
 fetch('files.json')
   .then(res => res.json())
   .then(files => {
