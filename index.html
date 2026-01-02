@@ -5,121 +5,136 @@
 <title>YOUNG TEE DAILY PLUGS</title>
 
 <style>
+/* ===== GLOBAL ===== */
 body {
   margin: 0;
+  min-height: 100vh;
+  width: 100%;
   font-family: "Segoe UI", Arial, sans-serif;
+
   background-image: url("https://on.bwmxmd.co.ke/5llm7f.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: rgba(0,0,0,0.65);
+
+  background-color: rgba(0,0,0,0.75);
   background-blend-mode: darken;
+
   color: white;
-  padding: 40px 15px;
 }
 
+/* ===== MAIN WRAPPER ===== */
+.main {
+  min-height: 100vh;
+  width: 100%;
+  padding: 40px 20px 80px;
+  box-sizing: border-box;
+}
+
+/* ===== HEADINGS ===== */
 h1 {
   text-align: center;
-  letter-spacing: 2px;
+  font-size: 34px;
   margin-bottom: 25px;
+  letter-spacing: 2px;
 }
 
-/* SECTION SELECT BUTTONS */
+h2 {
+  font-size: 22px;
+  margin: 0;
+}
+
+/* ===== SECTION SELECT ===== */
 .section-select {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  margin-bottom: 40px;
+  gap: 15px;
+  margin-bottom: 35px;
   flex-wrap: wrap;
 }
 
 .section-select button {
-  padding: 10px 18px;
+  padding: 14px 26px;
+  font-size: 16px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   background: #1e90ff;
   color: white;
-  font-size: 14px;
   cursor: pointer;
 }
 
-/* SECTIONS */
+/* ===== SECTIONS ===== */
 .section {
   display: none;
-  margin-bottom: 50px;
+  max-width: 900px;
+  margin: auto;
 }
 
 .section.active {
   display: block;
 }
 
+/* ===== SECTION HEADER ===== */
 .section-header {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 20px;
 }
 
 .section-header img {
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
 }
 
-.section-header h2 {
-  font-size: 18px;
-  letter-spacing: 2px;
-  margin: 0;
-}
-
+/* ===== FILE CARD ===== */
 .file {
   background: rgba(0,0,0,0.6);
-  border-radius: 14px;
-  padding: 16px;
-  margin-bottom: 16px;
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 18px;
 }
 
 .file-name {
-  font-size: 16px;
-  margin-bottom: 12px;
+  font-size: 18px;
+  margin-bottom: 14px;
 }
 
+/* ===== DOWNLOAD BUTTON ===== */
 .download-btn {
   display: inline-block;
-  padding: 10px 22px;
+  padding: 12px 28px;
   background: #1e90ff;
   color: white;
   text-decoration: none;
-  border-radius: 8px;
-  font-size: 14px;
+  border-radius: 10px;
+  font-size: 16px;
 }
 
-/* CONTACT */
+/* ===== CONTACT ===== */
 .contact {
-  margin-top: 60px;
+  margin-top: 70px;
   padding-top: 30px;
   border-top: 1px solid rgba(255,255,255,0.3);
   text-align: center;
 }
 
-.contact h3 {
-  letter-spacing: 2px;
-  margin-bottom: 15px;
-}
-
 .contact a {
   color: #1e90ff;
-  text-decoration: none;
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  text-decoration: none;
 }
 </style>
 </head>
 
 <body>
 
+<div class="main">
+
 <h1>YOUNG TEE DAILY PLUGS</h1>
 
-<!-- SECTION SELECTOR -->
 <div class="section-select">
   <button onclick="showSection('ha')">HA TUNNEL FILES</button>
   <button onclick="showSection('tls')">TLS TUNNEL FILES</button>
@@ -128,24 +143,10 @@ h1 {
 <!-- HA SECTION -->
 <div id="ha" class="section active">
   <div class="section-header">
-    <img src="https://on.bwmxmd.co.ke/h2tob8.jpg">
+    <img src="https://on.bwmxmd.co.ke/e1smty.jpg">
     <h2>HA TUNNEL FILES</h2>
   </div>
-
-  <div class="file">
-    <div class="file-name">MTN-ZA 🇿🇦 500MB DAILY</div>
-    <a class="download-btn" href="https://www.mediafire.com/file/48vuqjrka7e9iby/MTN-ZA%25F0%259F%2587%25BF%25F0%259F%2587%25A6500MB_DAILY%255B2026%255D.hat/file" target="_blank">DOWNLOAD</a>
-  </div>
-
-  <div class="file">
-    <div class="file-name">MTN-ZA 🇿🇦 300MB DAILY</div>
-    <a class="download-btn" href="https://www.mediafire.com/file/hcdbjom3jg4bgpg/MTN-ZA%25F0%259F%2587%25BF%25F0%259F%2587%25A6300MB_DAILY.hat/file" target="_blank">DOWNLOAD</a>
-  </div>
-
-  <div class="file">
-    <div class="file-name">MTNSA 🇿🇦 200MB DAILY</div>
-    <a class="download-btn" href="https://www.mediafire.com/file/2c6rqbjch30pk1q/MTN-ZA%25F0%259F%2587%25BF%25F0%259F%2587%25A6200MB_DAILY.hat/file" target="_blank">DOWNLOAD</a>
-  </div>
+  <div id="ha-files"></div>
 </div>
 
 <!-- TLS SECTION -->
@@ -154,37 +155,42 @@ h1 {
     <img src="https://on.bwmxmd.co.ke/g791vt.png">
     <h2>TLS TUNNEL FILES</h2>
   </div>
-
-  <div class="file">
-    <div class="file-name">MTNSA 🇿🇦 500MB DAILY</div>
-    <a class="download-btn" href="https://www.mediafire.com/file/cet8elfx8phfqub/MTNSA%25F0%259F%2587%25BF%25F0%259F%2587%25A6500MB_%255BYOUNG_TEE%255D.tls/file" target="_blank">DOWNLOAD</a>
-  </div>
+  <div id="tls-files"></div>
 </div>
 
 <!-- CONTACT -->
 <div class="contact">
-  <h3>CONTACT</h3>
+  <a href="https://wa.me/27634179556" target="_blank">WhatsApp: +27 63 417 9556</a>
+  <a href="mailto:youngtee090934@gmail.com">Email: youngtee090934@gmail.com</a>
+  <a href="https://whatsapp.com/channel/0029VbCJbOF1dAvyOmf31L2G" target="_blank">WhatsApp Channel</a>
+</div>
 
-  <a href="https://wa.me/27634179556" target="_blank">
-    WhatsApp: +27 63 417 9556
-  </a>
-
-  <a href="mailto:youngtee090934@gmail.com">
-    Email: youngtee090934@gmail.com
-  </a>
-
-  <a href="https://whatsapp.com/channel/0029VbCJbOF1dAvyOmf31L2G" target="_blank">
-    WhatsApp Channel
-  </a>
 </div>
 
 <script>
 function showSection(id) {
-  document.querySelectorAll('.section').forEach(sec => {
-    sec.classList.remove('active');
-  });
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
+
+fetch('files.json')
+  .then(res => res.json())
+  .then(files => {
+    files.forEach(file => {
+      const box = document.createElement('div');
+      box.className = 'file';
+      box.innerHTML = `
+        <div class="file-name">${file.name}</div>
+        <a class="download-btn" href="${file.link}" target="_blank">DOWNLOAD</a>
+      `;
+
+      if (file.type === 'hat') {
+        document.getElementById('ha-files').appendChild(box);
+      } else if (file.type === 'tls') {
+        document.getElementById('tls-files').appendChild(box);
+      }
+    });
+  });
 </script>
 
 </body>
