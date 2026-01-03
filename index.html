@@ -4,187 +4,191 @@
 <meta charset="UTF-8">
 <title>YOUNG TEE DAILY PLUGS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MS98R2H51T"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-MS98R2H51T');
-</script>
-
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;900&display=swap" rel="stylesheet">
 <style>
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  font-family: "Segoe UI", Arial, sans-serif;
-}
-
-/* FULL SCREEN BACKGROUND */
+/* RESET & BODY */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  background: url("https://on.bwmxmd.co.ke/5llm7f.jpg") no-repeat center center fixed;
+  font-family: 'Orbitron', sans-serif;
+  background: url('https://on.bwmxmd.co.ke/5llm7f.jpg') no-repeat center center fixed;
   background-size: cover;
-  background-color: rgba(0,0,0,0.5);
-  background-blend-mode: darken;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: 4vh;
-  color: white;
+  color: #0ff;
+  min-height: 100vh;
 }
 
-/* MAIN CONTENT */
+/* MAIN CONTAINER */
 .main {
   width: 90%;
-  max-width: 1200px;
+  max-width: 1400px;
+  margin: auto;
+  padding-top: 3vh;
   text-align: center;
 }
 
-/* TITLE */
+/* HEADER */
 h1 {
-  font-size: 10vw;       /* BIG & responsive */
+  font-size: 8vw;
+  color: #1e90ff;
   font-weight: 900;
-  letter-spacing: 2vw;
-  margin-bottom: 5vh;
+  text-shadow: 0 0 5px #1e90ff, 0 0 10px #0ff;
+  margin-bottom: 3vh;
 }
 
 /* HAMBURGER MENU */
 .menu-btn {
   position: fixed;
-  top: 2vh;
-  left: 2vh;
-  font-size: 8vw;
-  font-weight: 900;
+  top: 20px;
+  right: 20px;
+  font-size: 2.5rem;
+  color: #0ff;
   cursor: pointer;
   z-index: 1000;
-  color: white;
+  transition: 0.3s;
 }
+.menu-btn:hover { color: #1e90ff; }
 
-.menu {
+.nav {
   position: fixed;
-  top: 0;
-  left: -100%;
-  width: 70%;
+  top: 0; right: -300px;
+  width: 250px;
   height: 100%;
   background: rgba(0,0,0,0.95);
+  padding-top: 5vh;
   transition: 0.3s;
-  padding-top: 10vh;
-  z-index: 999;
-  display: flex;
-  flex-direction: column;
-  gap: 3vh;
 }
+.nav.active { right: 0; }
 
-.menu.open { left: 0; }
-
-.menu a {
-  font-size: 5vw;
-  font-weight: 900;
-  color: white;
-  text-decoration: none;
-  padding: 1.5vh 3vw;
-  transition: transform 0.2s;
+.nav button {
+  display: block;
+  margin: 20px auto;
+  padding: 1.5vh 2vw;
+  font-size: 1.8rem;
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+  background: #1e90ff;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
 }
-
-.menu a:hover { transform: scale(1.05); }
+.nav button:hover {
+  background: #0ff;
+  color: #000;
+  transform: scale(1.05);
+}
 
 /* SECTIONS */
-.section { display: none; }
-.section.active { display: block; }
+.section { display: none; margin-top:5vh; }
+.section.active { display: block; animation: fadeIn 0.5s ease-in; }
+
+@keyframes fadeIn { from {opacity:0;} to{opacity:1;} }
 
 /* SECTION HEADER */
 .section-header {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2vw;
+  gap: 1.5vw;
   margin-bottom: 3vh;
 }
-
 .section-header img {
-  width: 6vw;   /* BIG icon */
-  height: 6vw;
+  width: 60px; height: 60px;
 }
-
-h2 {
-  font-size: 6vw;      /* BIG & bold */
+.section-header h2 {
+  font-size: 4vw;
   font-weight: 900;
-  margin: 0;
+  color: #1e90ff;
+  text-shadow: 0 0 3px #0ff; /* reduced glow */
 }
 
 /* FILE CARDS */
 .file {
-  background: rgba(0,0,0,0.7);
-  border-radius: 1vw;
-  padding: 2vh 2vw;
-  margin-bottom: 2vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  background: rgba(0,0,0,0.7);
+  margin: 1vh 0;
+  padding: 1.5vh 2vw;
+  border-radius: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-
+.file:hover { transform: scale(1.02); box-shadow: 0 0 10px #0ff; }
 .file-name {
-  font-size: 3.5vw;     /* HUGE & bold */
-  font-weight: 900;
-  margin-bottom: 0;
-}
-
-.download-btn {
-  padding: 2vh 4vw;     /* BIG & bold button */
-  font-size: 3vw;
-  font-weight: 900;
-  border-radius: 1vw;
-  text-decoration: none;
-  background: #1e90ff;
-  color: white;
-  transition: transform 0.2s;
-}
-
-.download-btn:hover {
-  transform: scale(1.05);
-}
-
-/* CONTACT */
-.contact {
-  margin-top: 5vh;
-  border-top: 0.2vh solid rgba(255,255,255,0.3);
-  padding-top: 2vh;
-}
-
-.contact a {
-  display: block;
   font-size: 2.5vw;
+  font-weight: 900;
+}
+.download-btn {
+  font-size: 2vw;
   font-weight: bold;
-  margin-bottom: 1vh;
+  background: #1e90ff;
+  color: #fff;
+  padding: 1vh 2vw;
+  border-radius: 10px;
   text-decoration: none;
-  color: #1e90ff;
+  transition: 0.2s;
+}
+.download-btn:hover {
+  background: #0ff;
+  color: #000;
+  transform: scale(1.1);
+}
+
+/* CONTACT BUTTONS */
+.contact-buttons {
+  margin-top: 5vh;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2vw;
+}
+.contact-buttons a {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #0ff;
+  background: #111;
+  padding: 1.5vh 2vw;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #0ff;
+  transition: 0.3s;
+}
+.contact-buttons a:hover {
+  background: #0ff;
+  color: #000;
+  transform: scale(1.1);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  h1{ font-size:12vw; }
+  .section-header h2{ font-size:6vw; }
+  .file-name{ font-size:4vw; }
+  .download-btn{ font-size:3vw; }
+  .contact-buttons a{ font-size:3vw; }
 }
 </style>
 </head>
-
 <body>
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
-
-<div class="menu" id="menu">
-  <a onclick="showSection('ha'); toggleMenu()">HA TUNNEL FILES</a>
-  <a onclick="showSection('tls'); toggleMenu()">TLS TUNNEL FILES</a>
-  <a onclick="showSection('linklayer'); toggleMenu()">LINKLAYER VPN FILES</a>
-  <a onclick="showSection('httpcustom'); toggleMenu()">HTTP CUSTOM FILES</a>
-</div>
 
 <div class="main">
 
 <h1>YOUNG TEE DAILY PLUGS</h1>
 
+<!-- HAMBURGER -->
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+<div class="nav" id="navMenu">
+  <button onclick="showSection('ha'); toggleMenu()">HA Tunnel Files</button>
+  <button onclick="showSection('tls'); toggleMenu()">TLS Tunnel Files</button>
+  <button onclick="showSection('ink'); toggleMenu()">LinkLayer VPN</button>
+  <button onclick="showSection('hc'); toggleMenu()">HTTP Custom</button>
+</div>
+
 <!-- HA SECTION -->
 <div id="ha" class="section active">
   <div class="section-header">
     <img src="https://on.bwmxmd.co.ke/h2tob8.jpg" alt="HA">
-    <h2>HA TUNNEL FILES</h2>
+    <h2>HA Tunnel Files</h2>
   </div>
   <div id="ha-files"></div>
 </div>
@@ -193,49 +197,50 @@ h2 {
 <div id="tls" class="section">
   <div class="section-header">
     <img src="https://on.bwmxmd.co.ke/g791vt.png" alt="TLS">
-    <h2>TLS TUNNEL FILES</h2>
+    <h2>TLS Tunnel Files</h2>
   </div>
   <div id="tls-files"></div>
 </div>
 
 <!-- LINKLAYER SECTION -->
-<div id="linklayer" class="section">
+<div id="ink" class="section">
   <div class="section-header">
     <img src="https://on.bwmxmd.co.ke/103i3r.png" alt="LinkLayer">
-    <h2>LINKLAYER VPN FILES</h2>
+    <h2>LinkLayer VPN</h2>
   </div>
-  <div id="linklayer-files"></div>
+  <div id="ink-files"></div>
 </div>
 
 <!-- HTTP CUSTOM SECTION -->
-<div id="httpcustom" class="section">
+<div id="hc" class="section">
   <div class="section-header">
     <img src="https://on.bwmxmd.co.ke/lbk1c2.png" alt="HTTP Custom">
-    <h2>HTTP CUSTOM FILES</h2>
+    <h2>HTTP Custom</h2>
   </div>
-  <div id="httpcustom-files"></div>
+  <div id="hc-files"></div>
 </div>
 
-<!-- CONTACT -->
-<div class="contact">
+<!-- CONTACT BUTTONS -->
+<div class="contact-buttons">
   <a href="https://wa.me/27634179556" target="_blank">WhatsApp: +27 63 417 9556</a>
-  <a href="mailto:youngtee090934@gmail.com">Email: youngtee090934@gmail.com</a>
-  <a href="https://whatsapp.com/channel/0029VbCJbOF1dAvyOmf31L2G" target="_blank">WhatsApp Channel</a>
+  <a href="https://whatsapp.com/channel/0029VbCJbOF1dAvyOmf31L2G" target="_blank">Channel</a>
 </div>
 
 </div>
 
 <script>
+/* Hamburger menu toggle */
 function toggleMenu() {
-  document.getElementById('menu').classList.toggle('open');
+  document.getElementById('navMenu').classList.toggle('active');
 }
 
-function showSection(id) {
+/* Show section */
+function showSection(id){
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
 
-// Load files dynamically from type-based JSON
+/* Load files from JSON */
 fetch('files.json')
   .then(res => res.json())
   .then(files => {
@@ -246,18 +251,13 @@ fetch('files.json')
         <div class="file-name">${file.name}</div>
         <a class="download-btn" href="${file.link}" target="_blank">DOWNLOAD</a>
       `;
-
-      if(file.type === 'hat') {
-        document.getElementById('ha-files').appendChild(box);
-      } else if(file.type === 'tls') {
-        document.getElementById('tls-files').appendChild(box);
-      } else if(file.type === 'ink') {
-        document.getElementById('linklayer-files').appendChild(box);
-      } else if(file.type === 'hc') {
-        document.getElementById('httpcustom-files').appendChild(box);
-      }
+      if(file.type==='hat') document.getElementById('ha-files').appendChild(box);
+      else if(file.type==='tls') document.getElementById('tls-files').appendChild(box);
+      else if(file.type==='ink') document.getElementById('ink-files').appendChild(box);
+      else if(file.type==='hc') document.getElementById('hc-files').appendChild(box);
     });
   });
 </script>
+
 </body>
 </html>
