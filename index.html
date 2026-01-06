@@ -3,270 +3,246 @@
 <head>
 <meta charset="UTF-8">
 <title>YOUNG TEE DAILY PLUGS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Google tag (gtag.js) -->
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MS98R2H51T"></script>
 <script>
-window.dataLayer = window.dataLayer || [];
+  window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('c
-onfig', 'G-MS98R2H51T');
+  gtag('config', 'G-MS98R2H51T');
 </script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;900&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+
 <style>
-/* RESET & BODY */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: 'Orbitron', sans-serif;
-  background: url('https://on.bwmxmd.co.ke/5llm7f.jpg') no-repeat center center fixed;
-  background-size: cover;
-  color: #0ff;
-  min-height: 100vh;
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:'Orbitron',sans-serif;
+  background:url("https://on.bwmxmd.co.ke/5llm7f.jpg") no-repeat center center fixed;
+  background-size:cover;
+  color:#fff;
 }
 
-/* MAIN CONTAINER */
-.main {
-  width: 90%;
-  max-width: 1400px;
-  margin: auto;
-  padding-top: 3vh;
-  text-align: center;
+.overlay{
+  background:rgba(0,0,0,.65);
+  min-height:100vh;
+  padding:20px;
+}
+
+/* HAMBURGER */
+.menu-icon{
+  position:fixed;
+  top:20px;
+  left:20px;
+  font-size:28px;
+  cursor:pointer;
+  z-index:1001;
+  background:rgba(0,0,0,.6);
+  padding:10px 14px;
+  border-radius:10px;
+}
+
+/* SIDE MENU */
+.side-menu{
+  position:fixed;
+  top:0;
+  left:-260px;
+  width:250px;
+  height:100%;
+  background:#0b132b;
+  padding:25px 15px;
+  transition:.3s;
+  z-index:1000;
+}
+
+.side-menu a{
+  display:block;
+  padding:15px;
+  margin-bottom:10px;
+  color:#fff;
+  font-weight:700;
+  border-radius:10px;
+  text-decoration:none;
+  background:rgba(255,255,255,.1);
+}
+
+.side-menu a:hover{background:#1e90ff}
+
+.side-menu hr{
+  border:none;
+  height:1px;
+  background:rgba(255,255,255,.2);
+  margin:20px 0;
+}
+
+.channel-btn{
+  background:linear-gradient(135deg,#25D366,#128C7E);
+  text-align:center;
 }
 
 /* HEADER */
-h1 {
-  font-size: 8vw;
-  color: #1e90ff;
-  font-weight: 900;
-  text-shadow: 0 0 5px #1e90ff, 0 0 10px #0ff;
-  margin-bottom: 3vh;
+header{text-align:center;padding:40px 10px}
+header h1{
+  font-size:clamp(2.5rem,6vw,4.5rem);
+  font-weight:900;
 }
-
-/* HAMBURGER MENU */
-.menu-btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  font-size: 2.5rem;
-  color: #0ff;
-  cursor: pointer;
-  z-index: 1000;
-  transition: 0.3s;
-}
-.menu-btn:hover { color: #1e90ff; }
-
-.nav {
-  position: fixed;
-  top: 0; right: -300px;
-  width: 250px;
-  height: 100%;
-  background: rgba(0,0,0,0.95);
-  padding-top: 5vh;
-  transition: 0.3s;
-}
-.nav.active { right: 0; }
-
-.nav button {
-  display: block;
-  margin: 20px auto;
-  padding: 1.5vh 2vw;
-  font-size: 1.8rem;
-  font-weight: bold;
-  border-radius: 10px;
-  border: none;
-  background: #1e90ff;
-  color: #fff;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.nav button:hover {
-  background: #0ff;
-  color: #000;
-  transform: scale(1.05);
-}
+header p{opacity:.85;margin-top:10px}
 
 /* SECTIONS */
-.section { display: none; margin-top:5vh; }
-.section.active { display: block; animation: fadeIn 0.5s ease-in; }
+.section{display:none;max-width:900px;margin:auto}
+.section.active{display:block}
 
-@keyframes fadeIn { from {opacity:0;} to{opacity:1;} }
+.section-header{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin:25px 0;
+}
+.section-header img{width:46px;height:46px}
+.section-header h2{font-size:1.8rem}
 
-/* SECTION HEADER */
-.section-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5vw;
-  margin-bottom: 3vh;
+/* FILE CARD */
+.file{
+  backdrop-filter:blur(10px);
+  background:rgba(255,255,255,.1);
+  padding:18px;
+  border-radius:16px;
+  margin-bottom:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
 }
-.section-header img {
-  width: 60px; height: 60px;
-}
-.section-header h2 {
-  font-size: 4vw;
-  font-weight: 900;
-  color: #1e90ff;
-  text-shadow: 0 0 3px #0ff; /* reduced glow */
-}
-
-/* FILE CARDS */
-.file {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(0,0,0,0.7);
-  margin: 1vh 0;
-  padding: 1.5vh 2vw;
-  border-radius: 10px;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.file:hover { transform: scale(1.02); box-shadow: 0 0 10px #0ff; }
-.file-name {
-  font-size: 2.5vw;
-  font-weight: 900;
-}
-.download-btn {
-  font-size: 2vw;
-  font-weight: bold;
-  background: #1e90ff;
-  color: #fff;
-  padding: 1vh 2vw;
-  border-radius: 10px;
-  text-decoration: none;
-  transition: 0.2s;
-}
-.download-btn:hover {
-  background: #0ff;
-  color: #000;
-  transform: scale(1.1);
+.file-name{font-weight:800}
+.download{
+  padding:12px 22px;
+  background:#1e90ff;
+  color:#fff;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:700;
 }
 
-/* CONTACT BUTTONS */
-.contact-buttons {
-  margin-top: 5vh;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2vw;
-}
-.contact-buttons a {
-  font-size: 1.8rem;
-  font-weight: bold;
-  text-decoration: none;
-  color: #0ff;
-  background: #111;
-  padding: 1.5vh 2vw;
-  border-radius: 10px;
-  box-shadow: 0 0 5px #0ff;
-  transition: 0.3s;
-}
-.contact-buttons a:hover {
-  background: #0ff;
-  color: #000;
-  transform: scale(1.1);
-}
+/* CONTACT */
+.contact{text-align:center;margin-top:40px}
+.contact a{display:block;color:#1e90ff;margin:8px 0}
 
-/* RESPONSIVE */
-@media(max-width:768px){
-  h1{ font-size:12vw; }
-  .section-header h2{ font-size:6vw; }
-  .file-name{ font-size:4vw; }
-  .download-btn{ font-size:3vw; }
-  .contact-buttons a{ font-size:3vw; }
+/* FOOTER */
+.footer{
+  margin-top:60px;
+  padding:20px 10px;
+  text-align:center;
+  font-size:0.9rem;
+  opacity:0.8;
+  border-top:1px solid rgba(255,255,255,0.2);
+}
+.footer strong{color:#1e90ff}
+
+@media(max-width:600px){
+  .file{flex-direction:column;align-items:flex-start;gap:10px}
 }
 </style>
 </head>
+
 <body>
 
-<div class="main">
+<div class="menu-icon" onclick="toggleMenu()">☰</div>
 
-<h1>YOUNG TEE DAILY PLUGS</h1>
-
-<!-- HAMBURGER -->
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
-<div class="nav" id="navMenu">
-  <button onclick="showSection('ha'); toggleMenu()">HA Tunnel Files</button>
-  <button onclick="showSection('tls'); toggleMenu()">TLS Tunnel Files</button>
-  <button onclick="showSection('ink'); toggleMenu()">LinkLayer VPN</button>
-  <button onclick="showSection('hc'); toggleMenu()">HTTP Custom</button>
+<div id="sideMenu" class="side-menu">
+  <a onclick="show('hat');toggleMenu()">HA Tunnel Files</a>
+  <a onclick="show('tls');toggleMenu()">TLS Tunnel Files</a>
+  <a onclick="show('ink');toggleMenu()">LinkLayer VPN</a>
+  <a onclick="show('hc');toggleMenu()">HTTP Custom Files</a>
+  <hr>
+  <a class="channel-btn" href="https://whatsapp.com/channel/0029VbCJbOF1dAvyOmf31L2G" target="_blank">
+    📢 WhatsApp Channel
+  </a>
 </div>
 
-<!-- HA SECTION -->
-<div id="ha" class="section active">
+<div class="overlay">
+
+<header>
+  <h1>YOUNG TEE DAILY PLUGS</h1>
+  <p>Secure Tunnel Configs • Updated Daily</p>
+</header>
+
+<!-- HA -->
+<div id="hat" class="section active">
   <div class="section-header">
-    <img src="https://on.bwmxmd.co.ke/h2tob8.jpg" alt="HA">
-    <h2>HA Tunnel Files</h2>
+    <img src="https://on.bwmxmd.co.ke/h2tob8.jpg">
+    <h2>HA TUNNEL FILES</h2>
   </div>
-  <div id="ha-files"></div>
+  <div id="hat-files"></div>
 </div>
 
-<!-- TLS SECTION -->
+<!-- TLS -->
 <div id="tls" class="section">
   <div class="section-header">
-    <img src="https://on.bwmxmd.co.ke/g791vt.png" alt="TLS">
-    <h2>TLS Tunnel Files</h2>
+    <img src="https://on.bwmxmd.co.ke/g791vt.png">
+    <h2>TLS TUNNEL FILES</h2>
   </div>
   <div id="tls-files"></div>
 </div>
 
-<!-- LINKLAYER SECTION -->
+<!-- LINKLAYER -->
 <div id="ink" class="section">
   <div class="section-header">
-    <img src="https://on.bwmxmd.co.ke/103i3r.png" alt="LinkLayer">
-    <h2>LinkLayer VPN</h2>
+    <img src="https://on.bwmxmd.co.ke/103i3r.png">
+    <h2>LINKLAYER VPN</h2>
   </div>
   <div id="ink-files"></div>
 </div>
 
-<!-- HTTP CUSTOM SECTION -->
+<!-- HTTP CUSTOM -->
 <div id="hc" class="section">
   <div class="section-header">
-    <img src="https://on.bwmxmd.co.ke/lbk1c2.png" alt="HTTP Custom">
-    <h2>HTTP Custom</h2>
+    <img src="https://on.bwmxmd.co.ke/lbk1c2.png">
+    <h2>HTTP CUSTOM FILES</h2>
   </div>
   <div id="hc-files"></div>
 </div>
 
-<!-- CONTACT BUTTONS -->
-<div class="contact-buttons">
-  <a href="https://wa.me/27634179556" target="_blank">WhatsApp: +27 63 417 9556</a>
-  <a href="https://whatsapp.com/channel/0029VbCJbOF1dAvyOmf31L2G" target="_blank">Channel</a>
+<div class="contact">
+  <a href="https://wa.me/27634179556">WhatsApp: +27 63 417 9556</a>
+  <a href="mailto:youngtee090934@gmail.com">youngtee090934@gmail.com</a>
 </div>
+
+<footer class="footer">
+  <p>© 2026 — MADE BY <strong>YOUNG TEE</strong>. All rights reserved.</p>
+</footer>
 
 </div>
 
 <script>
-/* Hamburger menu toggle */
-function toggleMenu() {
-  document.getElementById('navMenu').classList.toggle('active');
+function toggleMenu(){
+  const m=document.getElementById('sideMenu');
+  m.style.left = (m.style.left === '0px') ? '-260px' : '0px';
 }
 
-/* Show section */
-function showSection(id){
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+function show(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
 
-/* Load files from JSON */
 fetch('files.json')
-  .then(res => res.json())
-  .then(files => {
-    files.forEach(file => {
-      const box = document.createElement('div');
-      box.className = 'file';
-      box.innerHTML = `
-        <div class="file-name">${file.name}</div>
-        <a class="download-btn" href="${file.link}" target="_blank">DOWNLOAD</a>
-      `;
-      if(file.type==='hat') document.getElementById('ha-files').appendChild(box);
-      else if(file.type==='tls') document.getElementById('tls-files').appendChild(box);
-      else if(file.type==='ink') document.getElementById('ink-files').appendChild(box);
-      else if(file.type==='hc') document.getElementById('hc-files').appendChild(box);
-    });
+.then(r=>r.json())
+.then(files=>{
+  files.forEach(f=>{
+    const card=document.createElement('div');
+    card.className='file';
+    card.innerHTML=`
+      <div class="file-name">${f.name}</div>
+      <a class="download" href="${f.link}" target="_blank">DOWNLOAD</a>
+    `;
+    if(f.type==='hat') document.getElementById('hat-files').appendChild(card);
+    if(f.type==='tls') document.getElementById('tls-files').appendChild(card);
+    if(f.type==='ink') document.getElementById('ink-files').appendChild(card);
+    if(f.type==='hc')  document.getElementById('hc-files').appendChild(card);
   });
+});
 </script>
 
 </body>
