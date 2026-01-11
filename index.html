@@ -259,18 +259,10 @@ body.light .file:hover::after{
 }
 
 /* NOTIFICATION BAR */
-#notification{
-  position:fixed;
-  top:0;
-  left:50%;
-  transform:translateX(-50%);
-  background:#1e90ff;
-  color:#fff;
-  padding:12px 25px;
-  border-radius:0 0 10px 10px;
-  font-weight:700;
-  display:none;
-  z-index:2000;
+setTimeout(()=>{
+  const bar = document.getElementById('notifyBar');
+  if(bar) bar.style.display='none';
+},7000);
 }
 </style>
 </head>
