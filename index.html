@@ -329,6 +329,12 @@ document.getElementById('searchInput').addEventListener('input', function() {
     const name = f.querySelector('.file-name').textContent.toLowerCase();
     f.style.display = name.includes(val) ? 'flex' : 'none';
   });
+
+  // Show sections that have visible files, hide sections with none
+  document.querySelectorAll('.section').forEach(sec => {
+    const visibleFiles = sec.querySelectorAll('.file:not([style*="display: none"])');
+    sec.style.display = visibleFiles.length > 0 ? 'block' : 'none';
+  });
 });
 </script>
 
