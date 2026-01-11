@@ -386,22 +386,24 @@ fetch('files.json')
     card.className='file';
 
     let badge='';
-    if(f.date){
-      const fileDate=new Date(f.date);
-      const diff=(today-fileDate)/(1000*60*60*24);
-      if(diff<=3){
-        badge='<span class="new-badge">NEW</span>';
-        if(diff<1) newFilesToday++;
-      }
-    }
+let displayDate = f.date ? ` (${f.date})` : '';
 
-    const tooltip=`Name: ${f.name} | Type: ${f.type.toUpperCase()} | Date: ${f.date || 'Unknown'}`;
-    card.setAttribute('data-tooltip', tooltip);
+if(f.date){
+  const fileDate = new Date(f.date);
+  const diff = (today - fileDate) / (1000*60*60*24);
+  if(diff <= 3){
+    badge = '<span class="new-badge">NEW</span>';
+    if(diff < 1) newFilesToday++;
+  }
+}
 
-    card.innerHTML=`
-      <div><span class="file-name">${f.name}</span> ${badge}</div>
-      <a class="download" href="${f.link}" target="_blank">DOWNLOAD</a>
-    `;
+const tooltip=`Name: ${f.name} | Type: ${f.type.toUpperCase()} | Date: ${f.date || 'Unknown'}`;
+card.setAttribute('data-tooltip', tooltip);
+
+card.innerHTML=`
+  <div><span class="file-name">${f.name}${displayDate}</span> ${badge}</div>
+  <a class="download" href="${f.link}" target="_blank">DOWNLOAD</a>
+`;
 
     if(f.type==='hat') document.getElementById('hat-files').appendChild(card);
     if(f.type==='tls') document.getElementById('tls-files').appendChild(card);
