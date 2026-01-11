@@ -323,10 +323,11 @@ fetch('files.json')
 });
 
 // SEARCH
-document.getElementById('searchInput').addEventListener('input',function(){
-  const val=this.value.toLowerCase();
-  document.querySelectorAll('.file').forEach(f=>{
-    f.style.display = f.textContent.toLowerCase().includes(val) ? 'flex' : 'none';
+document.getElementById('searchInput').addEventListener('input', function() {
+  const val = this.value.toLowerCase();
+  document.querySelectorAll('.file').forEach(f => {
+    const name = f.querySelector('.file-name').textContent.toLowerCase();
+    f.style.display = name.includes(val) ? 'flex' : 'none';
   });
 });
 </script>
