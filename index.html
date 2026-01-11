@@ -70,14 +70,12 @@ body{
 }
 
 .side-menu a:hover{background:#1e90ff}
-
 .side-menu hr{
   border:none;
   height:1px;
   background:rgba(255,255,255,.2);
   margin:20px 0;
 }
-
 .channel-btn{
   background:linear-gradient(135deg,#25D366,#128C7E);
   text-align:center;
@@ -88,13 +86,28 @@ header{text-align:center;padding:40px 10px}
 header h1{
   font-size:clamp(2.5rem,6vw,4.5rem);
   font-weight:900;
+  text-shadow:0 0 10px rgba(0,0,0,.7);
 }
 header p{opacity:.85;margin-top:10px}
+
+/* SEARCH BAR */
+.search-bar{
+  display:flex;
+  justify-content:center;
+  margin:20px 0;
+}
+.search-bar input{
+  padding:10px 20px;
+  width:80%;
+  max-width:500px;
+  border-radius:10px;
+  border:none;
+  font-size:1rem;
+}
 
 /* SECTIONS */
 .section{display:none;max-width:900px;margin:auto}
 .section.active{display:block}
-
 .section-header{
   display:flex;
   align-items:center;
@@ -115,8 +128,28 @@ header p{opacity:.85;margin-top:10px}
   justify-content:space-between;
   align-items:center;
   flex-wrap:wrap;
+  opacity:0;
+  transform:translateY(20px);
+  transition:.5s;
 }
-.file-name{font-weight:800}
+.file.show{
+  opacity:1;
+  transform:translateY(0);
+}
+.file-name{font-weight:800;font-size:1rem;}
+
+/* NEW BADGE */
+.new-badge{
+  background:#ff3c3c;
+  color:#fff;
+  font-size:0.7rem;
+  font-weight:700;
+  padding:2px 6px;
+  border-radius:5px;
+  margin-left:10px;
+}
+
+/* DOWNLOAD BUTTON */
 .download{
   padding:12px 22px;
   background:#1e90ff;
@@ -140,6 +173,27 @@ header p{opacity:.85;margin-top:10px}
   border-top:1px solid rgba(255,255,255,0.2);
 }
 .footer strong{color:#1e90ff}
+
+/* FLOATING BUTTONS */
+.floating{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  z-index:1001;
+}
+.floating a{
+  background:linear-gradient(135deg,#25D366,#128C7E);
+  color:#fff;
+  padding:12px 18px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:700;
+  text-align:center;
+  box-shadow:0 5px 10px rgba(0,0,0,.3);
+}
 
 @media(max-width:600px){
   .file{flex-direction:column;align-items:flex-start;gap:10px}
@@ -169,7 +223,12 @@ header p{opacity:.85;margin-top:10px}
   <p>Secure Tunnel Configs • Updated Daily</p>
 </header>
 
-<!-- HA -->
+<!-- SEARCH -->
+<div class="search-bar">
+  <input type="text" id="searchInput" placeholder="Search files...">
+</div>
+
+<!-- SECTIONS -->
 <div id="hat" class="section active">
   <div class="section-header">
     <img src="https://on.bwmxmd.co.ke/h2tob8.jpg">
@@ -178,7 +237,6 @@ header p{opacity:.85;margin-top:10px}
   <div id="hat-files"></div>
 </div>
 
-<!-- TLS -->
 <div id="tls" class="section">
   <div class="section-header">
     <img src="https://on.bwmxmd.co.ke/g791vt.png">
@@ -187,7 +245,6 @@ header p{opacity:.85;margin-top:10px}
   <div id="tls-files"></div>
 </div>
 
-<!-- LINKLAYER -->
 <div id="ink" class="section">
   <div class="section-header">
     <img src="https://on.bwmxmd.co.ke/103i3r.png">
@@ -196,7 +253,6 @@ header p{opacity:.85;margin-top:10px}
   <div id="ink-files"></div>
 </div>
 
-<!-- HTTP CUSTOM -->
 <div id="hc" class="section">
   <div class="section-header">
     <img src="https://on.bwmxmd.co.ke/lbk1c2.png">
@@ -216,31 +272,61 @@ header p{opacity:.85;margin-top:10px}
 
 </div>
 
+<!-- FLOATING BUTTONS -->
+<div class="floating">
+  <a href="https://wa.me/27634179556" target="_blank">💬 WhatsApp</a>
+  <a href="https://whatsapp.com/channel/0029VbCJbOF1dAvyOmf31L2G" target="_blank">📢 Channel</a>
+</div>
+
 <script>
+// HAMBURGER MENU
 function toggleMenu(){
   const m=document.getElementById('sideMenu');
   m.style.left = (m.style.left === '0px') ? '-260px' : '0px';
 }
 
+// SHOW SECTION
 function show(id){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
 
+// LOAD FILES FROM JSON WITH NEW BADGE
 fetch('files.json')
 .then(r=>r.json())
 .then(files=>{
+  const today=new Date();
   files.forEach(f=>{
     const card=document.createElement('div');
     card.className='file';
+    
+    // NEW badge for files added last 3 days
+    let badge='';
+    if(f.date){
+      const fileDate=new Date(f.date);
+      const diff=(today-fileDate)/(1000*60*60*24);
+      if(diff<=3) badge='<span class="new-badge">NEW</span>';
+    }
+    
     card.innerHTML=`
-      <div class="file-name">${f.name}</div>
+      <div><span class="file-name">${f.name}</span> ${badge}</div>
       <a class="download" href="${f.link}" target="_blank">DOWNLOAD</a>
     `;
+    
     if(f.type==='hat') document.getElementById('hat-files').appendChild(card);
     if(f.type==='tls') document.getElementById('tls-files').appendChild(card);
     if(f.type==='ink') document.getElementById('ink-files').appendChild(card);
     if(f.type==='hc')  document.getElementById('hc-files').appendChild(card);
+    
+    setTimeout(()=>card.classList.add('show'),50);
+  });
+});
+
+// SEARCH
+document.getElementById('searchInput').addEventListener('input',function(){
+  const val=this.value.toLowerCase();
+  document.querySelectorAll('.file').forEach(f=>{
+    f.style.display = f.textContent.toLowerCase().includes(val) ? 'flex' : 'none';
   });
 });
 </script>
