@@ -17,6 +17,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
 
 <style>
+/* BASIC RESET */
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
@@ -24,12 +25,25 @@ body{
   background:url("https://on.bwmxmd.co.ke/5llm7f.jpg") no-repeat center center fixed;
   background-size:cover;
   color:#fff;
+  transition:background 0.3s, color 0.3s;
 }
 
+/* LIGHT MODE */
+body.light{
+  background:#f0f0f0;
+  color:#111;
+}
+
+/* OVERLAY */
 .overlay{
   background:rgba(0,0,0,.65);
   min-height:100vh;
   padding:20px;
+  transition:background 0.3s;
+}
+
+body.light .overlay{
+  background:rgba(255,255,255,0.85);
 }
 
 /* HAMBURGER */
@@ -43,7 +57,10 @@ body{
   background:rgba(0,0,0,.6);
   padding:10px 14px;
   border-radius:10px;
+  transition:background 0.3s;
 }
+
+body.light .menu-icon{background:rgba(0,0,0,.2);}
 
 /* SIDE MENU */
 .side-menu{
@@ -58,6 +75,8 @@ body{
   z-index:1000;
 }
 
+body.light .side-menu{background:#fff;}
+
 .side-menu a{
   display:block;
   padding:15px;
@@ -67,27 +86,47 @@ body{
   border-radius:10px;
   text-decoration:none;
   background:rgba(255,255,255,.1);
+  transition:background 0.3s,color 0.3s;
 }
 
-.side-menu a:hover{background:#1e90ff}
+body.light .side-menu a{color:#111;background:rgba(0,0,0,.05);}
+.side-menu a:hover{background:#1e90ff;color:#fff;}
+body.light .side-menu a:hover{background:#1e90ff;color:#fff;}
+
 .side-menu hr{
   border:none;
   height:1px;
   background:rgba(255,255,255,.2);
   margin:20px 0;
 }
+
 .channel-btn{
   background:linear-gradient(135deg,#25D366,#128C7E);
   text-align:center;
+  color:#fff;
+}
+
+/* DARK/LIGHT ICON */
+#modeToggleIcon{
+  position:fixed;
+  top:20px;
+  right:20px;
+  font-size:28px;
+  cursor:pointer;
+  z-index:1002;
+  color:white;
+  transition:color 0.3s;
 }
 
 /* HEADER */
 header{text-align:center;padding:40px 10px}
 header h1{
-  font-size:clamp(2.5rem,6vw,4.5rem);
+  font-size:3rem;     /* Smaller but still bold */
   font-weight:900;
-  text-shadow:0 0 10px rgba(0,0,0,.7);
+  text-shadow:0 0 12px rgba(0,0,0,.7);
+  transition:text-shadow 0.3s;
 }
+body.light header h1{text-shadow:none;}
 header p{opacity:.85;margin-top:10px}
 
 /* SEARCH BAR */
@@ -114,29 +153,51 @@ header p{opacity:.85;margin-top:10px}
   gap:15px;
   margin:25px 0;
 }
-.section-header img{width:46px;height:46px}
-.section-header h2{font-size:1.8rem}
+.section-header img{width: 20vw;height:20vw}
+.section-header h2{font-size:2rem;font-weight:900;}
 
 /* FILE CARD */
 .file{
   backdrop-filter:blur(10px);
   background:rgba(255,255,255,.1);
-  padding:18px;
-  border-radius:16px;
-  margin-bottom:15px;
+  padding:2vh 2vw;
+  border-radius:12px;
+  margin-bottom:2vh;
   display:flex;
   justify-content:space-between;
   align-items:center;
   flex-wrap:wrap;
   opacity:0;
   transform:translateY(20px);
-  transition:.5s;
+  transition:.5s, background 0.3s;
+  position:relative;
+  cursor:pointer;
 }
-.file.show{
+
+body.light .file{background:rgba(0,0,0,.05);}
+
+.file.show{opacity:1;transform:translateY(0);}
+.file-name{font-weight:900;font-size:1.2rem;}
+
+/* TOOLTIP */
+.file:hover::after{
+  content: attr(data-tooltip);
+  position:absolute;
+  bottom:110%;
+  left:0;
+  background:rgba(0,0,0,0.85);
+  color:#fff;
+  padding:6px 10px;
+  border-radius:6px;
+  white-space:nowrap;
+  font-size:0.9rem;
   opacity:1;
-  transform:translateY(0);
+  z-index:100;
 }
-.file-name{font-weight:800;font-size:1rem;}
+
+body.light .file:hover::after{
+  background:rgba(0,0,0,.7); color:#fff;
+}
 
 /* NEW BADGE */
 .new-badge{
@@ -151,13 +212,15 @@ header p{opacity:.85;margin-top:10px}
 
 /* DOWNLOAD BUTTON */
 .download{
-  padding:12px 22px;
+  padding:12px 24px;
   background:#1e90ff;
   color:#fff;
-  border-radius:10px;
+  border-radius:8px;
   text-decoration:none;
   font-weight:700;
+  transition:transform 0.2s;
 }
+.download:hover{transform:scale(1.05);}
 
 /* CONTACT */
 .contact{text-align:center;margin-top:40px}
@@ -195,12 +258,22 @@ header p{opacity:.85;margin-top:10px}
   box-shadow:0 5px 10px rgba(0,0,0,.3);
 }
 
-@media(max-width:600px){
-  .file{flex-direction:column;align-items:flex-start;gap:10px}
+/* NOTIFICATION BAR */
+#notification{
+  position:fixed;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  background:#1e90ff;
+  color:#fff;
+  padding:12px 25px;
+  border-radius:0 0 10px 10px;
+  font-weight:700;
+  display:none;
+  z-index:2000;
 }
 </style>
 </head>
-
 <body>
 
 <div class="menu-icon" onclick="toggleMenu()">☰</div>
@@ -211,10 +284,10 @@ header p{opacity:.85;margin-top:10px}
   <a onclick="show('ink');toggleMenu()">LinkLayer VPN</a>
   <a onclick="show('hc');toggleMenu()">HTTP Custom Files</a>
   <hr>
-  <a class="channel-btn" href="https://whatsapp.com/channel/0029VbCJbOF1dAvyOmf31L2G" target="_blank">
-    📢 WhatsApp Channel
-  </a>
+  <a class="channel-btn" href="https://whatsapp.com/channel/0029VbCJbOF1dAvyOmf31L2G" target="_blank">📢 WhatsApp Channel</a>
 </div>
+
+<div id="modeToggleIcon">🌙</div>
 
 <div class="overlay">
 
@@ -222,6 +295,9 @@ header p{opacity:.85;margin-top:10px}
   <h1>YOUNG TEE DAILY PLUGS</h1>
   <p>Secure Tunnel Configs • Updated Daily</p>
 </header>
+
+<!-- Notification -->
+<div id="notification"></div>
 
 <!-- SEARCH -->
 <div class="search-bar">
@@ -263,7 +339,7 @@ header p{opacity:.85;margin-top:10px}
 
 <div class="contact">
   <a href="https://wa.me/27634179556">WhatsApp: +27 63 417 9556</a>
-  <a href="mailto:youngtee090934@gmail.com">youngtee090934@gmail.com</a>
+  <a href="mailto:youngtee090934@gmail.com">Email: youngtee090934@gmail.com</a>
 </div>
 
 <footer class="footer">
@@ -291,52 +367,70 @@ function show(id){
   document.getElementById(id).classList.add('active');
 }
 
-// LOAD FILES FROM JSON WITH NEW BADGE
+// DARK/LIGHT MODE
+const modeIcon=document.getElementById('modeToggleIcon');
+modeIcon.addEventListener('click',()=>{
+  document.body.classList.toggle('light');
+  modeIcon.textContent = document.body.classList.contains('light') ? '☀️' : '🌙';
+});
+
+// LOAD FILES FROM JSON
 fetch('files.json')
 .then(r=>r.json())
 .then(files=>{
   const today=new Date();
+  let newFilesToday=0;
+
   files.forEach(f=>{
     const card=document.createElement('div');
     card.className='file';
-    
-    // NEW badge for files added last 3 days
+
     let badge='';
     if(f.date){
       const fileDate=new Date(f.date);
       const diff=(today-fileDate)/(1000*60*60*24);
-      if(diff<=3) badge='<span class="new-badge">NEW</span>';
+      if(diff<=3){
+        badge='<span class="new-badge">NEW</span>';
+        if(diff<1) newFilesToday++;
+      }
     }
-    
+
+    const tooltip=`Name: ${f.name} | Type: ${f.type.toUpperCase()} | Date: ${f.date || 'Unknown'}`;
+    card.setAttribute('data-tooltip', tooltip);
+
     card.innerHTML=`
       <div><span class="file-name">${f.name}</span> ${badge}</div>
       <a class="download" href="${f.link}" target="_blank">DOWNLOAD</a>
     `;
-    
+
     if(f.type==='hat') document.getElementById('hat-files').appendChild(card);
     if(f.type==='tls') document.getElementById('tls-files').appendChild(card);
     if(f.type==='ink') document.getElementById('ink-files').appendChild(card);
-    if(f.type==='hc')  document.getElementById('hc-files').appendChild(card);
-    
+    if(f.type==='hc') document.getElementById('hc-files').appendChild(card);
+
     setTimeout(()=>card.classList.add('show'),50);
   });
+
+  if(newFilesToday>0){
+    const n=document.getElementById('notification');
+    n.textContent=`${newFilesToday} New file(s) added today!`;
+    n.style.display='block';
+    setTimeout(()=>{n.style.display='none';},5000);
+  }
 });
 
-// SEARCH
-document.getElementById('searchInput').addEventListener('input', function() {
-  const val = this.value.toLowerCase();
-  document.querySelectorAll('.file').forEach(f => {
-    const name = f.querySelector('.file-name').textContent.toLowerCase();
+// GLOBAL SEARCH
+document.getElementById('searchInput').addEventListener('input', function(){
+  const val=this.value.toLowerCase();
+  document.querySelectorAll('.file').forEach(f=>{
+    const name=f.querySelector('.file-name').textContent.toLowerCase();
     f.style.display = name.includes(val) ? 'flex' : 'none';
   });
-
-  // Show sections that have visible files, hide sections with none
-  document.querySelectorAll('.section').forEach(sec => {
-    const visibleFiles = sec.querySelectorAll('.file:not([style*="display: none"])');
-    sec.style.display = visibleFiles.length > 0 ? 'block' : 'none';
+  document.querySelectorAll('.section').forEach(sec=>{
+    const visibleFiles=sec.querySelectorAll('.file:not([style*="display: none"])');
+    sec.style.display=visibleFiles.length>0 ? 'block' : 'none';
   });
 });
 </script>
-
 </body>
 </html>
