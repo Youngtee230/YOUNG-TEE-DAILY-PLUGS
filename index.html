@@ -5,431 +5,282 @@
 <title>YOUNG TEE DAILY PLUGS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MS98R2H51T"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-MS98R2H51T');
-</script>
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
-
 <style>
-/* BASIC RESET */
-*{margin:0;padding:0;box-sizing:border-box}
+*{box-sizing:border-box}
 
 body{
-  font-family:'Orbitron',sans-serif;
+  margin:0;
+  font-family:Segoe UI,Arial,sans-serif;
   background:url("https://on.bwmxmd.co.ke/5llm7f.jpg") no-repeat center center fixed;
   background-size:cover;
+  background-color:rgba(0,0,0,.55);
+  background-blend-mode:darken;
   color:#fff;
-  transition:background 0.3s, color 0.3s;
 }
 
-/* LIGHT MODE */
-body.light{
-  background:#f0f0f0;
-  color:#111;
-}
-
-/* OVERLAY */
-.overlay{
-  background:rgba(0,0,0,.65);
-  min-height:100vh;
+header{
+  text-align:center;
   padding:20px;
-  transition:background 0.3s;
 }
 
-body.light .overlay{
-  background:rgba(255,255,255,0.85);
+header h1{
+  font-size:3rem;
+  font-weight:900;
 }
 
-/* HAMBURGER */
-.menu-icon{
+/* MENU */
+.menu-btn{
   position:fixed;
   top:20px;
   left:20px;
   font-size:28px;
   cursor:pointer;
-  z-index:1001;
-  background:rgba(0,0,0,.6);
-  padding:10px 14px;
-  border-radius:10px;
-  transition:background 0.3s;
+  z-index:3001;
 }
 
-body.light .menu-icon{background:rgba(0,0,0,.2);}
-
-/* SIDE MENU */
 .side-menu{
   position:fixed;
-  top:0;
   left:-260px;
-  width:250px;
+  top:0;
+  width:260px;
   height:100%;
-  background:#0b132b;
-  padding:25px 15px;
+  background:#111;
+  padding:20px;
   transition:.3s;
-  z-index:1000;
 }
-
-body.light .side-menu{background:#fff;}
 
 .side-menu a{
   display:block;
-  padding:15px;
-  margin-bottom:10px;
-  color:#fff;
-  font-weight:700;
-  border-radius:10px;
+  padding:12px;
+  margin-bottom:8px;
+  background:#1e90ff;
   text-decoration:none;
-  background:rgba(255,255,255,.1);
-  transition:background 0.3s,color 0.3s;
-}
-
-body.light .side-menu a{color:#111;background:rgba(0,0,0,.05);}
-.side-menu a:hover{background:#1e90ff;color:#fff;}
-body.light .side-menu a:hover{background:#1e90ff;color:#fff;}
-
-.side-menu hr{
-  border:none;
-  height:1px;
-  background:rgba(255,255,255,.2);
-  margin:20px 0;
-}
-
-.channel-btn{
-  background:linear-gradient(135deg,#25D366,#128C7E);
-  text-align:center;
-  color:#fff;
-}
-
-/* DARK/LIGHT ICON */
-#modeToggleIcon{
-  position:fixed;
-  top:20px;
-  right:20px;
-  font-size:28px;
-  cursor:pointer;
-  z-index:1002;
   color:white;
-  transition:color 0.3s;
+  font-weight:700;
+  border-radius:6px;
 }
 
-/* HEADER */
-header{text-align:center;padding:40px 10px}
-header h1{
-  font-size:3rem;     /* Smaller but still bold */
-  font-weight:900;
-  text-shadow:0 0 12px rgba(0,0,0,.7);
-  transition:text-shadow 0.3s;
+/* DARK MODE ICON */
+#modeIcon{
+  position:fixed;
+  right:20px;
+  top:20px;
+  font-size:26px;
+  cursor:pointer;
 }
-body.light header h1{text-shadow:none;}
-header p{opacity:.85;margin-top:10px}
 
-/* SEARCH BAR */
-.search-bar{
-  display:flex;
-  justify-content:center;
-  margin:20px 0;
-}
-.search-bar input{
-  padding:10px 20px;
-  width:80%;
+/* SEARCH */
+.search-box{
+  width:90%;
   max-width:500px;
-  border-radius:10px;
+  margin:20px auto;
+}
+.search-box input{
+  width:100%;
+  padding:12px;
+  border-radius:8px;
   border:none;
-  font-size:1rem;
 }
 
 /* SECTIONS */
-.section{display:none;max-width:900px;margin:auto}
+.section{display:none}
 .section.active{display:block}
+
 .section-header{
   display:flex;
+  justify-content:center;
   align-items:center;
   gap:15px;
   margin:25px 0;
 }
-.section-header img{width: 20vw;height:20vw}
-.section-header h2{font-size:2rem;font-weight:900;}
 
-/* FILE CARD */
+.section-header img{
+  width:60px;
+}
+
+.section-header h2{
+  font-size:2rem;
+  font-weight:900;
+}
+
+/* TUTORIAL VIDEO */
+.tutorial-box{
+  width:90%;
+  max-width:400px;
+  margin:0 auto 25px;
+}
+
+.video-container{
+  position:relative;
+  padding-bottom:177%;
+  height:0;
+}
+
+.video-container iframe{
+  position:absolute;
+  width:100%;
+  height:100%;
+  border-radius:10px;
+}
+
+/* FILE CARDS */
 .file{
-  backdrop-filter:blur(10px);
-  background:rgba(255,255,255,.1);
-  padding:2vh 2vw;
-  border-radius:12px;
-  margin-bottom:2vh;
+  background:rgba(0,0,0,.7);
+  margin:12px auto;
+  padding:15px;
+  border-radius:8px;
+  max-width:900px;
   display:flex;
   justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  opacity:0;
-  transform:translateY(20px);
-  transition:.5s, background 0.3s;
-  position:relative;
-  cursor:pointer;
 }
 
-body.light .file{background:rgba(0,0,0,.05);}
-
-.file.show{opacity:1;transform:translateY(0);}
-.file-name{font-weight:900;font-size:1.2rem;}
-
-/* TOOLTIP */
-.file:hover::after{
-  content: attr(data-tooltip);
-  position:absolute;
-  bottom:110%;
-  left:0;
-  background:rgba(0,0,0,0.85);
-  color:#fff;
-  padding:6px 10px;
-  border-radius:6px;
-  white-space:nowrap;
-  font-size:0.9rem;
-  opacity:1;
-  z-index:100;
-}
-
-body.light .file:hover::after{
-  background:rgba(0,0,0,.7); color:#fff;
-}
-
-/* NEW BADGE */
-.new-badge{
-  background:#ff3c3c;
-  color:#fff;
-  font-size:0.7rem;
-  font-weight:700;
-  padding:2px 6px;
-  border-radius:5px;
-  margin-left:10px;
-}
-
-/* DOWNLOAD BUTTON */
 .download{
-  padding:12px 24px;
   background:#1e90ff;
-  color:#fff;
-  border-radius:8px;
+  padding:10px 15px;
   text-decoration:none;
-  font-weight:700;
-  transition:transform 0.2s;
+  color:white;
+  border-radius:6px;
 }
-.download:hover{transform:scale(1.05);}
 
-/* CONTACT */
-.contact{text-align:center;margin-top:40px}
-.contact a{display:block;color:#1e90ff;margin:8px 0}
+/* FLOATING BOX */
+#notifyBar{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  background:rgba(30,144,255,0.25);
+  backdrop-filter:blur(6px);
+  border:1.5px solid rgba(30,144,255,0.6);
+  padding:20px;
+  border-radius:6px;
+  font-weight:800;
+}
 
 /* FOOTER */
-.footer{
-  margin-top:60px;
-  padding:20px 10px;
+footer{
   text-align:center;
-  font-size:0.9rem;
-  opacity:0.8;
-  border-top:1px solid rgba(255,255,255,0.2);
-}
-.footer strong{color:#1e90ff}
-
-/* FLOATING BUTTONS */
-.floating{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  z-index:1001;
-}
-.floating a{
-  background:linear-gradient(135deg,#25D366,#128C7E);
-  color:#fff;
-  padding:12px 18px;
-  border-radius:50px;
-  text-decoration:none;
-  font-weight:700;
-  text-align:center;
-  box-shadow:0 5px 10px rgba(0,0,0,.3);
-}
-
-/* NOTIFICATION BAR */
-setTimeout(()=>{
-  const bar = document.getElementById('notifyBar');
-  if(bar) bar.style.display='none';
-},7000);
+  padding:20px;
+  margin-top:40px;
 }
 </style>
 </head>
+
 <body>
 
-<!-- FLOATING NOTIFICATION BAR -->
-<div id="notifyBar">
-  
+<div id="notifyBar">🔥 DAILY FILES UPDATED</div>
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<div class="side-menu" id="menu">
+<a onclick="showSection('ha')">HA Tunnel</a>
+<a onclick="showSection('tls')">TLS Tunnel</a>
+<a onclick="showSection('ink')">LinkLayer VPN</a>
+<a onclick="showSection('hc')">HTTP Custom</a>
 </div>
 
-<div class="menu-icon" onclick="toggleMenu()">☰</div>
-
-<div id="sideMenu" class="side-menu">
-  <a onclick="show('hat');toggleMenu()">HA Tunnel Files</a>
-  <a onclick="show('tls');toggleMenu()">TLS Tunnel Files</a>
-  <a onclick="show('ink');toggleMenu()">LinkLayer VPN</a>
-  <a onclick="show('hc');toggleMenu()">HTTP Custom Files</a>
-  <hr>
-  <a class="channel-btn" href="https://whatsapp.com/channel/0029VbCJbOF1dAvyOmf31L2G" target="_blank">📢 WhatsApp Channel</a>
-</div>
-
-<div id="modeToggleIcon">🌙</div>
-
-<div class="overlay">
+<div id="modeIcon">🌙</div>
 
 <header>
-  <h1>YOUNG TEE DAILY PLUGS</h1>
-  <p>Secure Tunnel Configs • Updated Daily</p>
+<h1>YOUNG TEE DAILY PLUGS</h1>
 </header>
 
-<!-- Notification -->
-<div id="notification"></div>
-
-<!-- SEARCH -->
-<div class="search-bar">
-  <input type="text" id="searchInput" placeholder="Search files...">
+<div class="search-box">
+<input type="text" id="search" placeholder="Search files...">
 </div>
 
-<!-- SECTIONS -->
-<div id="hat" class="section active">
-  <div class="section-header">
-    <img src="https://on.bwmxmd.co.ke/h2tob8.jpg">
-    <h2>HA TUNNEL FILES</h2>
-  </div>
-  <div id="hat-files"></div>
+<!-- HA SECTION -->
+<div id="ha" class="section active">
+<div class="section-header">
+<img src="https://on.bwmxmd.co.ke/h2tob8.jpg">
+<h2>HA TUNNEL FILES</h2>
 </div>
 
+<!-- TUTORIAL -->
+<div class="tutorial-box">
+<div class="video-container">
+<iframe src="https://www.youtube.com/embed/RiVArs7gaos" allowfullscreen></iframe>
+</div>
+</div>
+
+<div id="ha-files"></div>
+</div>
+
+<!-- TLS SECTION -->
 <div id="tls" class="section">
-  <div class="section-header">
-    <img src="https://on.bwmxmd.co.ke/g791vt.png">
-    <h2>TLS TUNNEL FILES</h2>
-  </div>
-  <div id="tls-files"></div>
+<div class="section-header">
+<img src="https://on.bwmxmd.co.ke/g791vt.png">
+<h2>TLS TUNNEL FILES</h2>
 </div>
 
+<div class="tutorial-box">
+<div class="video-container">
+<iframe src="https://www.youtube.com/embed/RiVArs7gaos" allowfullscreen></iframe>
+</div>
+</div>
+
+<div id="tls-files"></div>
+</div>
+
+<!-- LINKLAYER -->
 <div id="ink" class="section">
-  <div class="section-header">
-    <img src="https://on.bwmxmd.co.ke/103i3r.png">
-    <h2>LINKLAYER VPN</h2>
-  </div>
-  <div id="ink-files"></div>
+<div class="section-header">
+<img src="https://on.bwmxmd.co.ke/103i3r.png">
+<h2>LINKLAYER VPN</h2>
 </div>
 
+<div class="tutorial-box">
+<div class="video-container">
+<iframe src="https://www.youtube.com/embed/RiVArs7gaos" allowfullscreen></iframe>
+</div>
+</div>
+
+<div id="ink-files"></div>
+</div>
+
+<!-- HTTP CUSTOM -->
 <div id="hc" class="section">
-  <div class="section-header">
-    <img src="https://on.bwmxmd.co.ke/lbk1c2.png">
-    <h2>HTTP CUSTOM FILES</h2>
-  </div>
-  <div id="hc-files"></div>
+<div class="section-header">
+<img src="https://on.bwmxmd.co.ke/lbk1c2.png">
+<h2>HTTP CUSTOM FILES</h2>
 </div>
 
-<div class="contact">
-  <a href="https://wa.me/27634179556">WhatsApp: +27 63 417 9556</a>
-  <a href="mailto:youngtee090934@gmail.com">Email: youngtee090934@gmail.com</a>
+<div class="tutorial-box">
+<div class="video-container">
+<iframe src="https://www.youtube.com/embed/RiVArs7gaos" allowfullscreen></iframe>
+</div>
 </div>
 
-<footer class="footer">
-  <p>© 2026 — MADE BY <strong>YOUNG TEE</strong>. All rights reserved.</p>
+<div id="hc-files"></div>
+</div>
+
+<footer>
+MADE BY YOUNG TEE<br>
+All rights reserved © 2026
 </footer>
 
-</div>
-
-<!-- FLOATING BUTTONS -->
-<div class="floating">
-  <a href="https://wa.me/27634179556" target="_blank">💬 WhatsApp</a>
-  <a href="https://whatsapp.com/channel/0029VbCJbOF1dAvyOmf31L2G" target="_blank">📢 Channel</a>
-</div>
-
 <script>
-// HAMBURGER MENU
 function toggleMenu(){
-  const m=document.getElementById('sideMenu');
-  m.style.left = (m.style.left === '0px') ? '-260px' : '0px';
+const m=document.getElementById('menu');
+m.style.left=m.style.left==='0px'?'-260px':'0px';
 }
 
-// SHOW SECTION
-function show(id){
-  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+function showSection(id){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+toggleMenu();
 }
 
-// DARK/LIGHT MODE
-const modeIcon=document.getElementById('modeToggleIcon');
-modeIcon.addEventListener('click',()=>{
-  document.body.classList.toggle('light');
-  modeIcon.textContent = document.body.classList.contains('light') ? '☀️' : '🌙';
+/* LOAD FILES */
+fetch('files.json').then(r=>r.json()).then(files=>{
+files.forEach(f=>{
+const div=document.createElement('div');
+div.className='file';
+div.innerHTML=`<div>${f.name}</div>
+<a class="download" href="${f.link}" target="_blank">DOWNLOAD</a>`;
+document.getElementById(f.type+'-files').appendChild(div);
 });
-
-// LOAD FILES FROM JSON
-fetch('files.json')
-.then(r=>r.json())
-.then(files=>{
-  const today=new Date();
-  let newFilesToday=0;
-
-  files.forEach(f=>{
-    const card=document.createElement('div');
-    card.className='file';
-
-    let badge='';
-let displayDate = f.date ? ` (${f.date})` : '';
-
-if(f.date){
-  const fileDate = new Date(f.date);
-  const diff = (today - fileDate) / (1000*60*60*24);
-  if(diff <= 3){
-    badge = '<span class="new-badge">NEW</span>';
-    if(diff < 1) newFilesToday++;
-  }
-}
-
-const tooltip=`Name: ${f.name} | Type: ${f.type.toUpperCase()} | Date: ${f.date || 'Unknown'}`;
-card.setAttribute('data-tooltip', tooltip);
-
-card.innerHTML=`
-  <div><span class="file-name">${f.name}${displayDate}</span> ${badge}</div>
-  <a class="download" href="${f.link}" target="_blank">DOWNLOAD</a>
-`;
-
-    if(f.type==='hat') document.getElementById('hat-files').appendChild(card);
-    if(f.type==='tls') document.getElementById('tls-files').appendChild(card);
-    if(f.type==='ink') document.getElementById('ink-files').appendChild(card);
-    if(f.type==='hc') document.getElementById('hc-files').appendChild(card);
-
-    setTimeout(()=>card.classList.add('show'),50);
-  });
-
-  if(newFilesToday>0){
-    const n=document.getElementById('notification');
-    n.textContent=`${newFilesToday} New file(s) added today!`;
-    n.style.display='block';
-    setTimeout(()=>{n.style.display='none';},5000);
-  }
-});
-
-// GLOBAL SEARCH
-document.getElementById('searchInput').addEventListener('input', function(){
-  const val=this.value.toLowerCase();
-  document.querySelectorAll('.file').forEach(f=>{
-    const name=f.querySelector('.file-name').textContent.toLowerCase();
-    f.style.display = name.includes(val) ? 'flex' : 'none';
-  });
-  document.querySelectorAll('.section').forEach(sec=>{
-    const visibleFiles=sec.querySelectorAll('.file:not([style*="display: none"])');
-    sec.style.display=visibleFiles.length>0 ? 'block' : 'none';
-  });
 });
 </script>
+
 </body>
 </html>
