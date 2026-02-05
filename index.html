@@ -2,282 +2,295 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>YOUNG TEE DAILY PLUGS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YOUNG TEE DAILY PLUGS</title>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MS98R2H51T"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-MS98R2H51T');
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-*{box-sizing:border-box}
-
 body{
   margin:0;
-  font-family:Segoe UI,Arial,sans-serif;
-  background:url("https://on.bwmxmd.co.ke/5llm7f.jpg") no-repeat center center fixed;
+  font-family:Arial,sans-serif;
+  background:#0f172a url("https://on.bwmxmd.co.ke/5llm7f.jpg") no-repeat center center fixed;
   background-size:cover;
-  background-color:rgba(0,0,0,.55);
-  background-blend-mode:darken;
-  color:#fff;
+  color:white;
+  transition:.3s;
+}
+body.light{
+  background:#ffffff;
+  color:black;
 }
 
+/* HEADER */
 header{
-  text-align:center;
-  padding:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px;
 }
-
 header h1{
-  font-size:3rem;
-  font-weight:900;
+  font-size:22px;
+  margin:0;
 }
 
-/* MENU */
+/* DARK MODE BUTTON */
+#modeIcon{
+  font-size:22px;
+  cursor:pointer;
+}
+
+/* SEARCH BOX */
+.search-box{
+  width:90%;
+  max-width:500px;
+  margin:15px auto;
+}
+.search-box input{
+  width:100%;
+  padding:10px;
+  border-radius:8px;
+  border:none;
+  font-size:14px;
+}
+
+/* HAMBURGER MENU */
 .menu-btn{
   position:fixed;
-  top:20px;
-  left:20px;
+  left:15px;
+  top:15px;
   font-size:28px;
   cursor:pointer;
-  z-index:3001;
+  z-index:1001;
+  color:white;
 }
-
 .side-menu{
   position:fixed;
-  left:-260px;
   top:0;
-  width:260px;
+  left:-220px;
+  width:220px;
   height:100%;
   background:#111;
   padding:20px;
   transition:.3s;
+  z-index:1000;
 }
-
 .side-menu a{
   display:block;
-  padding:12px;
-  margin-bottom:8px;
-  background:#1e90ff;
+  margin-bottom:12px;
   text-decoration:none;
   color:white;
-  font-weight:700;
+  background:#1e90ff;
+  padding:8px 12px;
   border-radius:6px;
-}
-
-/* DARK MODE ICON */
-#modeIcon{
-  position:fixed;
-  right:20px;
-  top:20px;
-  font-size:26px;
-  cursor:pointer;
-}
-
-/* SEARCH */
-.search-box{
-  width:90%;
-  max-width:500px;
-  margin:20px auto;
-}
-.search-box input{
-  width:100%;
-  padding:12px;
-  border-radius:8px;
-  border:none;
+  font-weight:700;
 }
 
 /* SECTIONS */
-.section{display:none}
-.section.active{display:block}
-
-.section-header{
+.section{
+  display:none;
+  padding:15px;
+}
+.section.active{
+  display:block;
+}
+.section h2{
+  font-size:16px;
+  margin-bottom:10px;
   display:flex;
-  justify-content:center;
   align-items:center;
-  gap:15px;
-  margin:25px 0;
+  gap:10px;
 }
 
-.section-header img{
-  width:60px;
+/* VIDEO TUTORIAL SMALL */
+.video-box{
+  margin-top:10px;
+  max-width:260px;
 }
-
-.section-header h2{
-  font-size:2rem;
-  font-weight:900;
-}
-
-/* TUTORIAL VIDEO */
-.tutorial-box{
-  width:90%;
-  max-width:400px;
-  margin:0 auto 25px;
-}
-
-.video-container{
-  position:relative;
-  padding-bottom:177%;
-  height:0;
-}
-
-.video-container iframe{
-  position:absolute;
+.video-box iframe{
   width:100%;
-  height:100%;
+  height:150px;
   border-radius:10px;
+  border:none;
 }
 
-/* FILE CARDS */
+/* FILE CARD */
 .file{
   background:rgba(0,0,0,.7);
-  margin:12px auto;
-  padding:15px;
-  border-radius:8px;
-  max-width:900px;
+  padding:12px;
+  margin:8px 0;
+  border-radius:10px;
   display:flex;
   justify-content:space-between;
+  align-items:center;
 }
-
-.download{
-  background:#1e90ff;
-  padding:10px 15px;
-  text-decoration:none;
+.download-btn{
+  background:#22c55e;
   color:white;
+  border:none;
+  padding:6px 10px;
   border-radius:6px;
+  cursor:pointer;
+  font-weight:700;
+}
+.update{
+  font-size:12px;
+  color:#38bdf8;
+  margin-top:4px;
 }
 
-/* FLOATING BOX */
-#notifyBar{
+/* FLOATING CENTER BOX */
+.floating-box{
   position:fixed;
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);
-  background:rgba(30,144,255,0.25);
+  background:rgba(173,216,230,0.25);
   backdrop-filter:blur(6px);
-  border:1.5px solid rgba(30,144,255,0.6);
-  padding:20px;
-  border-radius:6px;
-  font-weight:800;
+  padding:15px 25px;
+  border-radius:8px;
+  z-index:999;
 }
 
 /* FOOTER */
 footer{
   text-align:center;
-  padding:20px;
-  margin-top:40px;
+  padding:15px;
+  margin-top:20px;
+  font-size:12px;
+  color:#94a3b8;
+}
+
+/* LIGHT MODE FILE CARD */
+body.light .file{
+  background:#e2e8f0;
+  color:black;
+}
+body.light .side-menu a{
+  color:white;
+}
+body.light .menu-btn{
+  color:black;
 }
 </style>
 </head>
 
 <body>
 
-<div id="notifyBar">🔥 DAILY FILES UPDATED</div>
-
+<!-- HAMBURGER MENU -->
 <div class="menu-btn" onclick="toggleMenu()">☰</div>
-
 <div class="side-menu" id="menu">
-<a onclick="showSection('ha')">HA Tunnel</a>
-<a onclick="showSection('tls')">TLS Tunnel</a>
-<a onclick="showSection('ink')">LinkLayer VPN</a>
-<a onclick="showSection('hc')">HTTP Custom</a>
+  <a onclick="showSection('ha')">HA Tunnel (.hat)</a>
+  <a onclick="showSection('tls')">TLS Tunnel (.tls)</a>
+  <a onclick="showSection('ink')">Linklayer VPN (.ink)</a>
+  <a onclick="showSection('hc')">HTTP Custom (.hc)</a>
+  <a href="https://wa.me/27634179556" target="_blank">Channel Link</a>
 </div>
 
-<div id="modeIcon">🌙</div>
-
+<!-- HEADER -->
 <header>
 <h1>YOUNG TEE DAILY PLUGS</h1>
+<div id="modeIcon" onclick="toggleTheme()">🌙</div>
 </header>
 
+<!-- SEARCH -->
 <div class="search-box">
 <input type="text" id="search" placeholder="Search files...">
 </div>
 
-<!-- HA SECTION -->
-<div id="ha" class="section active">
-<div class="section-header">
-<img src="https://on.bwmxmd.co.ke/h2tob8.jpg">
-<h2>HA TUNNEL FILES</h2>
-</div>
+<!-- FLOATING CENTER BOX -->
+<div class="floating-box">🔥 Daily Files Updated!</div>
 
-<!-- TUTORIAL -->
-<div class="tutorial-box">
-<div class="video-container">
+<!-- SECTIONS -->
+<div class="section active" id="ha">
+<h2>HA Tunnel Files (.hat)</h2>
+<div class="video-box">
 <iframe src="https://www.youtube.com/embed/RiVArs7gaos" allowfullscreen></iframe>
 </div>
-</div>
-
 <div id="ha-files"></div>
 </div>
 
-<!-- TLS SECTION -->
-<div id="tls" class="section">
-<div class="section-header">
-<img src="https://on.bwmxmd.co.ke/g791vt.png">
-<h2>TLS TUNNEL FILES</h2>
-</div>
-
-<div class="tutorial-box">
-<div class="video-container">
+<div class="section" id="tls">
+<h2>TLS Tunnel Files (.tls)</h2>
+<div class="video-box">
 <iframe src="https://www.youtube.com/embed/RiVArs7gaos" allowfullscreen></iframe>
 </div>
-</div>
-
 <div id="tls-files"></div>
 </div>
 
-<!-- LINKLAYER -->
-<div id="ink" class="section">
-<div class="section-header">
-<img src="https://on.bwmxmd.co.ke/103i3r.png">
-<h2>LINKLAYER VPN</h2>
-</div>
-
-<div class="tutorial-box">
-<div class="video-container">
+<div class="section" id="ink">
+<h2>Linklayer VPN (.ink)</h2>
+<div class="video-box">
 <iframe src="https://www.youtube.com/embed/RiVArs7gaos" allowfullscreen></iframe>
 </div>
-</div>
-
 <div id="ink-files"></div>
 </div>
 
-<!-- HTTP CUSTOM -->
-<div id="hc" class="section">
-<div class="section-header">
-<img src="https://on.bwmxmd.co.ke/lbk1c2.png">
-<h2>HTTP CUSTOM FILES</h2>
-</div>
-
-<div class="tutorial-box">
-<div class="video-container">
+<div class="section" id="hc">
+<h2>HTTP Custom Files (.hc)</h2>
+<div class="video-box">
 <iframe src="https://www.youtube.com/embed/RiVArs7gaos" allowfullscreen></iframe>
 </div>
-</div>
-
 <div id="hc-files"></div>
 </div>
 
+<!-- FOOTER -->
 <footer>
 MADE BY YOUNG TEE<br>
 All rights reserved © 2026
 </footer>
 
 <script>
-function toggleMenu(){
-const m=document.getElementById('menu');
-m.style.left=m.style.left==='0px'?'-260px':'0px';
+// DARK/LIGHT MODE
+function toggleTheme(){
+document.body.classList.toggle("light");
 }
 
+// HAMBURGER MENU
+function toggleMenu(){
+const m=document.getElementById('menu');
+m.style.left = m.style.left==='0px' ? '-220px' : '0px';
+}
+
+// SHOW SECTIONS
 function showSection(id){
 document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
 document.getElementById(id).classList.add('active');
 toggleMenu();
 }
 
-/* LOAD FILES */
-fetch('files.json').then(r=>r.json()).then(files=>{
-files.forEach(f=>{
+// LOAD FILES FROM JSON
+fetch('files.json')
+.then(res=>res.json())
+.then(files=>{
+files.forEach(file=>{
 const div=document.createElement('div');
 div.className='file';
-div.innerHTML=`<div>${f.name}</div>
-<a class="download" href="${f.link}" target="_blank">DOWNLOAD</a>`;
-document.getElementById(f.type+'-files').appendChild(div);
+div.innerHTML=`<div>
+<div>${file.name}</div>
+<div class="update">Updated: ${file.date}</div>
+</div>
+<button class="download-btn" onclick="window.open('${file.link}')">Download</button>`;
+if(file.type==='hat') document.getElementById('ha-files').appendChild(div);
+if(file.type==='tls') document.getElementById('tls-files').appendChild(div);
+if(file.type==='ink') document.getElementById('ink-files').appendChild(div);
+if(file.type==='hc') document.getElementById('hc-files').appendChild(div);
+});
+});
+
+// SEARCH FUNCTION
+document.getElementById('search').addEventListener('input', function(){
+const term=this.value.toLowerCase();
+document.querySelectorAll('.file').forEach(f=>{
+f.style.display=f.innerText.toLowerCase().includes(term)?'flex':'none';
 });
 });
 </script>
