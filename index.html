@@ -17,6 +17,7 @@ gtag('config', 'G-MS98R2H51T');
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+/* BODY */
 body{
   margin:0;
   font-family:Arial,sans-serif;
@@ -79,9 +80,11 @@ header h1{
   width:220px;
   height:100%;
   background:#111;
-  padding:20px;
-  transition:.3s;
+  padding-top:60px; /* space from top */
+  padding-left:15px;
+  transition:left 0.3s ease;
   z-index:1000;
+  box-sizing:border-box;
 }
 .side-menu a{
   display:block;
@@ -89,7 +92,7 @@ header h1{
   text-decoration:none;
   color:white;
   background:#1e90ff;
-  padding:8px 12px;
+  padding:10px 12px;
   border-radius:6px;
   font-weight:700;
 }
@@ -251,47 +254,51 @@ All rights reserved © 2026
 <script>
 // DARK/LIGHT MODE
 function toggleTheme(){
-document.body.classList.toggle("light");
+  document.body.classList.toggle("light");
 }
 
 // HAMBURGER MENU
 function toggleMenu(){
-const m=document.getElementById('menu');
-m.style.left = m.style.left==='0px' ? '-220px' : '0px';
+  const m=document.getElementById('menu');
+  if(m.style.left==='0px'){
+    m.style.left='-220px';
+  } else {
+    m.style.left='0px';
+  }
 }
 
 // SHOW SECTIONS
 function showSection(id){
-document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-document.getElementById(id).classList.add('active');
-toggleMenu();
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  toggleMenu();
 }
 
 // LOAD FILES FROM JSON
 fetch('files.json')
 .then(res=>res.json())
 .then(files=>{
-files.forEach(file=>{
-const div=document.createElement('div');
-div.className='file';
-div.innerHTML=`<div>
-<div>${file.name}</div>
-<div class="update">Updated: ${file.date}</div>
-</div>
-<button class="download-btn" onclick="window.open('${file.link}')">Download</button>`;
-if(file.type==='hat') document.getElementById('ha-files').appendChild(div);
-if(file.type==='tls') document.getElementById('tls-files').appendChild(div);
-if(file.type==='ink') document.getElementById('ink-files').appendChild(div);
-if(file.type==='hc') document.getElementById('hc-files').appendChild(div);
-});
+  files.forEach(file=>{
+    const div=document.createElement('div');
+    div.className='file';
+    div.innerHTML=`<div>
+      <div>${file.name}</div>
+      <div class="update">Updated: ${file.date}</div>
+    </div>
+    <button class="download-btn" onclick="window.open('${file.link}')">Download</button>`;
+    if(file.type==='hat') document.getElementById('ha-files').appendChild(div);
+    if(file.type==='tls') document.getElementById('tls-files').appendChild(div);
+    if(file.type==='ink') document.getElementById('ink-files').appendChild(div);
+    if(file.type==='hc') document.getElementById('hc-files').appendChild(div);
+  });
 });
 
 // SEARCH FUNCTION
 document.getElementById('search').addEventListener('input', function(){
-const term=this.value.toLowerCase();
-document.querySelectorAll('.file').forEach(f=>{
-f.style.display=f.innerText.toLowerCase().includes(term)?'flex':'none';
-});
+  const term=this.value.toLowerCase();
+  document.querySelectorAll('.file').forEach(f=>{
+    f.style.display=f.innerText.toLowerCase().includes(term)?'flex':'none';
+  });
 });
 </script>
 
