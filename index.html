@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>YOUNG TEE DAILY PLUGS</title>
 
-<!-- Google Analytics -->
+<!-- GOOGLE ANALYTICS -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MS98R2H51T"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -14,290 +15,226 @@ gtag('js', new Date());
 gtag('config', 'G-MS98R2H51T');
 </script>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 <style>
-/* BODY */
+
 body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#0f172a url("https://on.bwmxmd.co.ke/5llm7f.jpg") no-repeat center center fixed;
-  background-size:cover;
-  color:white;
-  transition:.3s;
-}
-body.light{
-  background:#ffffff;
-  color:black;
+margin:0;
+font-family:Arial;
+background:#0b0b0b;
+color:white;
 }
 
-/* HEADER */
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px;
-}
-header h1{
-  font-size:22px;
-  margin:0;
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px;
 }
 
-/* DARK MODE BUTTON */
-#modeIcon{
-  font-size:22px;
-  cursor:pointer;
+.title{
+font-size:18px;
+font-weight:bold;
 }
 
-/* SEARCH BOX */
-.search-box{
-  width:90%;
-  max-width:500px;
-  margin:15px auto;
-}
-.search-box input{
-  width:100%;
-  padding:10px;
-  border-radius:8px;
-  border:none;
-  font-size:14px;
+.hamburger{
+font-size:24px;
+cursor:pointer;
 }
 
-/* HAMBURGER MENU */
-.menu-btn{
-  position:fixed;
-  left:15px;
-  top:15px;
-  font-size:28px;
-  cursor:pointer;
-  z-index:1001;
-  color:white;
+.mode-btn{
+cursor:pointer;
+font-size:20px;
 }
+
 .side-menu{
-  position:fixed;
-  top:0;
-  left:-220px;
-  width:220px;
-  height:100%;
-  background:#111;
-  padding-top:60px; /* space from top */
-  padding-left:15px;
-  transition:left 0.3s ease;
-  z-index:1000;
-  box-sizing:border-box;
+position:fixed;
+left:-250px;
+top:0;
+width:250px;
+height:100%;
+background:#111;
+transition:0.3s;
+padding-top:60px;
+z-index:1000;
 }
+
+.side-menu.active{
+left:0;
+}
+
 .side-menu a{
-  display:block;
-  margin-bottom:12px;
-  text-decoration:none;
-  color:white;
-  background:#1e90ff;
-  padding:10px 12px;
-  border-radius:6px;
-  font-weight:700;
+display:block;
+padding:15px;
+color:white;
+text-decoration:none;
 }
 
-/* SECTIONS */
-.section{
-  display:none;
-  padding:15px;
-}
-.section.active{
-  display:block;
-}
-.section h2{
-  font-size:16px;
-  margin-bottom:10px;
-  display:flex;
-  align-items:center;
-  gap:10px;
+.side-menu a:hover{
+background:#222;
 }
 
-/* VIDEO TUTORIAL SMALL */
-.video-box{
-  margin-top:10px;
-  max-width:260px;
-}
-.video-box iframe{
-  width:100%;
-  height:150px;
-  border-radius:10px;
-  border:none;
+.container{
+padding:20px;
 }
 
-/* FILE CARD */
 .file{
-  background:rgba(0,0,0,.7);
-  padding:12px;
-  margin:8px 0;
-  border-radius:10px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.download-btn{
-  background:#22c55e;
-  color:white;
-  border:none;
-  padding:6px 10px;
-  border-radius:6px;
-  cursor:pointer;
-  font-weight:700;
-}
-.update{
-  font-size:12px;
-  color:#38bdf8;
-  margin-top:4px;
+background:#111;
+margin-bottom:10px;
+padding:15px;
+border-radius:10px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
-/* FLOATING CENTER BOX */
+.badge{
+background:red;
+padding:3px 6px;
+border-radius:5px;
+font-size:12px;
+margin-left:8px;
+}
+
+button{
+background:#2196f3;
+border:none;
+color:white;
+padding:8px 15px;
+border-radius:5px;
+cursor:pointer;
+}
+
+.search{
+margin:10px;
+width:90%;
+padding:10px;
+border-radius:8px;
+border:none;
+}
+
+.video{
+text-align:center;
+}
+
 .floating-box{
-  position:fixed;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  background:rgba(173,216,230,0.25);
-  backdrop-filter:blur(6px);
-  padding:15px 25px;
-  border-radius:8px;
-  z-index:999;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:rgba(100,180,255,0.15);
+padding:15px 25px;
+border-radius:10px;
+backdrop-filter:blur(6px);
 }
 
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:15px;
-  margin-top:20px;
-  font-size:12px;
-  color:#94a3b8;
+.footer{
+text-align:center;
+padding:20px;
+color:#aaa;
 }
 
-/* LIGHT MODE FILE CARD */
-body.light .file{
-  background:#e2e8f0;
-  color:black;
-}
-body.light .side-menu a{
-  color:white;
-}
-body.light .menu-btn{
-  color:black;
-}
 </style>
+
 </head>
 
 <body>
 
-<!-- HAMBURGER MENU -->
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
 <div class="side-menu" id="menu">
-  <a onclick="showSection('ha')">HA Tunnel (.hat)</a>
-  <a onclick="showSection('tls')">TLS Tunnel (.tls)</a>
-  <a onclick="showSection('ink')">Linklayer VPN (.ink)</a>
-  <a onclick="showSection('hc')">HTTP Custom (.hc)</a>
-  <a href="https://wa.me/27634179556" target="_blank">Channel Link</a>
+<a onclick="filterFiles('all')">All Files</a>
+<a onclick="filterFiles('hat')">HA Tunnel (.hat)</a>
+<a onclick="filterFiles('tls')">TLS Tunnel (.tls)</a>
+<a onclick="filterFiles('ink')">Linklayer (.ink)</a>
+<a onclick="filterFiles('hc')">HTTP Custom (.hc)</a>
+<a onclick="filterFiles('tiktunnel')">TIK Tunnel Pro (.tik)</a>
 </div>
 
-<!-- HEADER -->
-<header>
-<h1>YOUNG TEE DAILY PLUGS</h1>
-<div id="modeIcon" onclick="toggleTheme()">🌙</div>
-</header>
-
-<!-- SEARCH -->
-<div class="search-box">
-<input type="text" id="search" placeholder="Search files...">
+<div class="header">
+<span class="hamburger" onclick="toggleMenu()">☰</span>
+<div class="title">YOUNG TEE DAILY PLUGS</div>
+<div class="mode-btn" onclick="toggleMode()">🌙</div>
 </div>
 
-<!-- SECTIONS -->
-<div class="section active" id="ha">
-<h2>HA TUNNEL FILES (.hat)</h2>
-<div class="video-box">
-<iframe src="https://www.youtube.com/embed/RiVArs7gaos" allowfullscreen></iframe>
-</div>
-<div id="ha-files"></div>
+<div class="video">
+<iframe width="260" height="460"
+src="https://www.youtube.com/embed/RiVArs7gaos"
+frameborder="0" allowfullscreen>
+</iframe>
 </div>
 
-<div class="section" id="tls">
-<h2>TLS TUNNEL FILES (.tls)</h2>
-<div class="video-box">
-<iframe src="https://www.youtube.com/embed/RiVArs7gaos" allowfullscreen></iframe>
-</div>
-<div id="tls-files"></div>
+<center>
+<input class="search" placeholder="Search files..." onkeyup="searchFiles(this.value)">
+</center>
+
+<div class="floating-box">
+Latest updates available 🔥
 </div>
 
-<div class="section" id="ink">
-<h2>LINKLAYER VPN (.ink)</h2>
-<div class="video-box">
-<iframe src="https://www.youtube.com/embed/RiVArs7gaos" allowfullscreen></iframe>
-</div>
-<div id="ink-files"></div>
-</div>
+<div class="container" id="files"></div>
 
-<div class="section" id="hc">
-<h2>HTTP CUSTOM FILES (.hc)</h2>
-<div class="video-box">
-<iframe src="https://www.youtube.com/embed/RiVArs7gaos" allowfullscreen></iframe>
-</div>
-<div id="hc-files"></div>
-</div>
-
-<!-- FOOTER -->
-<footer>
+<div class="footer">
 MADE BY YOUNG TEE<br>
-All rights reserved © 2026
-</footer>
+All rights reserved 2026
+</div>
 
 <script>
-// DARK/LIGHT MODE
-function toggleTheme(){
-  document.body.classList.toggle("light");
-}
 
-// HAMBURGER MENU
+let allFiles=[];
+let currentFilter="all";
+let searchText="";
+
 function toggleMenu(){
-  const m=document.getElementById('menu');
-  if(m.style.left==='0px'){
-    m.style.left='-220px';
-  } else {
-    m.style.left='0px';
-  }
+document.getElementById("menu").classList.toggle("active");
 }
 
-// SHOW SECTIONS
-function showSection(id){
-  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  toggleMenu();
+function toggleMode(){
+document.body.classList.toggle("light");
 }
 
-// LOAD FILES FROM JSON
-fetch('files.json')
+function filterFiles(type){
+currentFilter=type;
+renderFiles();
+}
+
+function searchFiles(text){
+searchText=text.toLowerCase();
+renderFiles();
+}
+
+fetch("files.json")
 .then(res=>res.json())
-.then(files=>{
-  files.forEach(file=>{
-    const div=document.createElement('div');
-    div.className='file';
-    div.innerHTML=`<div>
-      <div>${file.name}</div>
-      <div class="update">Updated: ${file.date}</div>
-    </div>
-    <button class="download-btn" onclick="window.open('${file.link}')">Download</button>`;
-    if(file.type==='hat') document.getElementById('ha-files').appendChild(div);
-    if(file.type==='tls') document.getElementById('tls-files').appendChild(div);
-    if(file.type==='ink') document.getElementById('ink-files').appendChild(div);
-    if(file.type==='hc') document.getElementById('hc-files').appendChild(div);
-  });
+.then(data=>{
+allFiles=data;
+renderFiles();
 });
 
-// SEARCH FUNCTION
-document.getElementById('search').addEventListener('input', function(){
-  const term=this.value.toLowerCase();
-  document.querySelectorAll('.file').forEach(f=>{
-    f.style.display=f.innerText.toLowerCase().includes(term)?'flex':'none';
-  });
+function renderFiles(){
+
+let container=document.getElementById("files");
+container.innerHTML="";
+
+let filtered=allFiles.filter(f=>
+(currentFilter==="all"||f.type===currentFilter)
+&& f.name.toLowerCase().includes(searchText)
+);
+
+filtered.forEach(file=>{
+
+let badge=file.date?'<span class="badge">NEW</span>':"";
+
+container.innerHTML+=`
+<div class="file">
+<div>${file.name} ${badge}</div>
+<button onclick="window.open('${file.link}')">Download</button>
+</div>
+`;
+
 });
+}
+
 </script>
+
+<!-- ADS SCRIPT -->
+<script src="https://pl28666673.effectivegatecpm.com/64/dd/37/64dd37a14121a6faa52c6a38719e8121.js"></script>
 
 </body>
 </html>
