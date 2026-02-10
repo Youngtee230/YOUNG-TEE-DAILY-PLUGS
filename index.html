@@ -4,6 +4,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>YOUNG TEE DAILY PLUGS</title>
 
 <!-- GOOGLE ANALYTICS -->
@@ -22,26 +23,23 @@ margin:0;
 font-family:Arial;
 color:white;
 
-/* REAL FULLSCREEN BACKGROUND */
-background-image: url("https://images.unsplash.com/photo-1518770660439-4636190af475");
-
+background-image:url("https://images.unsplash.com/photo-1518770660439-4636190af475");
 background-size:cover;
 background-position:center;
-background-repeat:no-repeat;
 background-attachment:fixed;
 }
 
-/* DARK OVERLAY (REAL SITE EFFECT) */
+/* dark overlay */
 body::before{
 content:"";
 position:fixed;
-top:0;
-left:0;
 width:100%;
 height:100%;
 background:rgba(0,0,0,0.65);
 z-index:-1;
 }
+
+/* HEADER */
 
 .header{
 display:flex;
@@ -50,52 +48,64 @@ align-items:center;
 padding:15px;
 }
 
-.title{
-font-size:18px;
-font-weight:bold;
-}
-
 .hamburger{
 font-size:24px;
 cursor:pointer;
 }
 
-.mode-btn{
-cursor:pointer;
-font-size:20px;
+.title{
+font-size:18px;
+font-weight:bold;
 }
 
-/* MENU */
+/* MODERN WHITE HAMBURGER MENU */
 
 .side-menu{
 position:fixed;
-left:-250px;
+left:-260px;
 top:0;
-width:250px;
+width:260px;
 height:100%;
-background:#111;
+background:white;
 transition:0.3s;
 padding-top:60px;
 z-index:1000;
+box-shadow:2px 0px 10px rgba(0,0,0,0.3);
 }
 
 .side-menu.active{
 left:0;
 }
 
-.side-menu a{
+.menu-item{
 display:block;
-padding:15px;
-color:white;
+margin:10px;
+padding:14px;
+border-radius:8px;
+background:#ffdddd;
+color:#b30000;
+font-weight:bold;
 text-decoration:none;
 cursor:pointer;
 }
 
-.side-menu a:hover{
-background:#222;
+.menu-item:hover{
+background:#ffcaca;
 }
 
-/* FILES */
+/* SEARCH */
+
+.search{
+margin:10px auto;
+width:90%;
+padding:10px;
+border-radius:8px;
+border:none;
+display:block;
+position:relative;
+}
+
+/* FILE CARDS */
 
 .container{
 padding:20px;
@@ -111,14 +121,6 @@ justify-content:space-between;
 align-items:center;
 }
 
-.badge{
-background:red;
-padding:3px 6px;
-border-radius:5px;
-font-size:12px;
-margin-left:8px;
-}
-
 button{
 background:#2196f3;
 border:none;
@@ -128,24 +130,10 @@ border-radius:5px;
 cursor:pointer;
 }
 
-.search{
-margin:10px auto;
-width:90%;
-padding:10px;
-border-radius:8px;
-border:none;
-display:block;
-position:relative;   /* IMPORTANT */
-top:auto;            /* IMPORTANT */
-}
-
-.video{
-text-align:center;
-}
-
 /* FLOATING BOX */
 
 .floating-box{
+position:fixed;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
@@ -154,6 +142,14 @@ padding:15px 25px;
 border-radius:10px;
 backdrop-filter:blur(6px);
 }
+
+/* VIDEO */
+
+.video{
+text-align:center;
+}
+
+/* FOOTER */
 
 .footer{
 text-align:center;
@@ -167,35 +163,53 @@ color:#aaa;
 
 <body>
 
-<!-- SIDE MENU -->
+<!-- HAMBURGER MENU -->
 <div class="side-menu" id="menu">
 
-<a onclick="selectSection('hat')">HA Tunnel (.hat)</a>
-<a onclick="selectSection('tls')">TLS Tunnel (.tls)</a>
-<a onclick="selectSection('ink')">Linklayer (.ink)</a>
-<a onclick="selectSection('hc')">HTTP Custom (.hc)</a>
-<a onclick="selectSection('tiktunnel')">TIK Tunnel Pro (.tik)</a>
+<div class="menu-item" onclick="selectSection('hat')">HA Tunnel Files</div>
+<div class="menu-item" onclick="selectSection('tls')">TLS Tunnel Files</div>
+<div class="menu-item" onclick="selectSection('ink')">Linklayer VPN</div>
+<div class="menu-item" onclick="selectSection('hc')">HTTP Custom Files</div>
+<div class="menu-item" onclick="selectSection('tiktunnel')">TIK Tunnel Pro</div>
+
+<a class="menu-item" href="https://www.facebook.com/reel/1394113842190310/?mibextid=Nif5oz" target="_blank">
+Facebook Tutorial
+</a>
+
+<a class="menu-item" href="https://whatsapp.com/channel/0029VbALNxJ90x2qB51ODr39" target="_blank">
+WhatsApp Channel
+</a>
+
+<div class="menu-item">Contact</div>
 
 </div>
+
+<!-- HEADER -->
 
 <div class="header">
 <span class="hamburger" onclick="toggleMenu()">☰</span>
 <div class="title">YOUNG TEE DAILY PLUGS</div>
-<div class="mode-btn" onclick="toggleMode()">🌙</div>
 </div>
+
+<!-- VIDEO -->
 
 <div class="video">
 <iframe width="260" height="460"
 src="https://www.youtube.com/embed/RiVArs7gaos"
-frameborder="0" allowhalfscreen>
-</iframe>
+frameborder="0" allowfullscreen></iframe>
 </div>
 
-<center>
+<!-- SEARCH -->
+
 <input class="search" placeholder="Search files..." onkeyup="searchFiles(this.value)">
-</center>
+
+<!-- FLOATING MESSAGE -->
+
+<!-- FILES -->
 
 <div class="container" id="files"></div>
+
+<!-- FOOTER -->
 
 <div class="footer">
 MADE BY YOUNG TEE<br>
@@ -212,15 +226,10 @@ function toggleMenu(){
 document.getElementById("menu").classList.toggle("active");
 }
 
-/* ✅ MENU CLOSES AFTER CLICK */
 function selectSection(type){
 currentFilter=type;
 renderFiles();
 document.getElementById("menu").classList.remove("active");
-}
-
-function toggleMode(){
-document.body.classList.toggle("light");
 }
 
 function searchFiles(text){
@@ -247,11 +256,9 @@ f.name.toLowerCase().includes(searchText)
 
 filtered.forEach(file=>{
 
-let badge=file.date?'<span class="badge">NEW</span>':"";
-
 container.innerHTML+=`
 <div class="file">
-<div>${file.name} ${badge}</div>
+<div>${file.name}</div>
 <button onclick="window.open('${file.link}')">Download</button>
 </div>
 `;
