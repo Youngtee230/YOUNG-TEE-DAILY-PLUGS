@@ -129,11 +129,14 @@ cursor:pointer;
 }
 
 .search{
-margin:10px;
+margin:10px auto;
 width:90%;
 padding:10px;
 border-radius:8px;
 border:none;
+display:block;
+position:relative;   /* IMPORTANT */
+top:auto;            /* IMPORTANT */
 }
 
 .video{
@@ -143,7 +146,6 @@ text-align:center;
 /* FLOATING BOX */
 
 .floating-box{
-position:fixed;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
