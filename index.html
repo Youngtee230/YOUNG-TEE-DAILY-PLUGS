@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>YOUNG TEE DAILY PLUGS</title>
 
-<!-- GOOGLE ANALYTICS -->
+<!-- ✅ GOOGLE ANALYTICS (FIXED) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MS98R2H51T"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -15,203 +17,248 @@ gtag('config', 'G-MS98R2H51T');
 </script>
 
 <style>
+
+/* BACKGROUND */
+
 body{
 margin:0;
-font-family:Arial;
+font-family:'Segoe UI',Arial;
 color:white;
 background-image:url("https://image2url.com/r2/default/files/1771438613233-6aa34042-6236-4dd2-b64b-335fb08030fd.jpg");
 background-size:cover;
 background-position:center;
 background-attachment:fixed;
 }
+
 body::before{
 content:"";
 position:fixed;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.6);
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(6px);
 z-index:-1;
 }
 
 /* HEADER */
+
 .header{
 display:flex;
 align-items:center;
 padding:15px;
+background:rgba(20,20,20,0.6);
+backdrop-filter:blur(10px);
 }
+
 .hamburger{
-font-size:26px;
+font-size:28px;
 cursor:pointer;
 margin-right:15px;
 }
+
 .title{
-font-size:24px; /* bigger title */
-font-weight:bold;
+font-size:26px;
+font-weight:600;
 }
 
-/* SIDE MENU */
+/* COOL TECH SIDEBAR */
+
 .side-menu{
 position:fixed;
-left:-260px;
+left:-270px;
 top:0;
-width:260px;
+width:270px;
 height:100%;
-background:white;
-transition:0.3s;
+background:rgba(15,15,15,0.85);
+backdrop-filter:blur(15px);
+transition:0.35s;
 padding-top:60px;
 z-index:1000;
-box-shadow:2px 0px 10px rgba(0,0,0,0.3);
+box-shadow:0 0 25px rgba(0,150,255,0.4);
 }
+
 .side-menu.active{
 left:0;
 }
+
 .menu-item{
-margin:10px;
+margin:12px;
 padding:14px;
-border-radius:8px;
-background:#ffdddd;
-color:#b30000;
-font-weight:bold;
+border-radius:12px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(0,150,255,0.2);
 cursor:pointer;
-}
-.menu-item:hover{
-background:#ffcaca;
+transition:0.25s;
 }
 
-/* SECTION TITLE */
+.menu-item:hover{
+background:rgba(0,150,255,0.2);
+transform:translateX(6px);
+box-shadow:0 0 10px rgba(0,150,255,0.6);
+}
+
+/* TITLE */
+
 #sectionTitle{
 text-align:center;
-margin-top:10px;
-font-size:22px;
+margin-top:15px;
+font-size:24px;
 }
 
-/* SEARCH BAR */
+/* SEARCH */
+
 .search{
 display:block;
 width:90%;
-margin:10px auto;
-padding:10px;
-border-radius:8px;
+margin:15px auto;
+padding:12px;
+border-radius:12px;
 border:none;
+background:rgba(255,255,255,0.1);
+color:white;
+outline:none;
 }
 
 /* VIDEO */
+
 .video{
 text-align:center;
 margin:15px 0;
 }
 
-/* FILES */
+/* FILE CARDS */
+
 .container{
 padding:15px;
 }
+
 .file{
-background:#111;
-margin-bottom:10px;
-padding:15px;
-border-radius:10px;
+background:rgba(20,20,20,0.6);
+backdrop-filter:blur(12px);
+margin-bottom:12px;
+padding:18px;
+border-radius:14px;
 display:flex;
 justify-content:space-between;
+align-items:center;
+transition:0.25s;
+border:1px solid rgba(255,255,255,0.1);
 }
+
+.file:hover{
+transform:translateY(-3px);
+box-shadow:0px 0px 15px rgba(0,150,255,0.3);
+}
+
 button{
-background:#2196f3;
+background:linear-gradient(45deg,#00aaff,#0066ff);
 border:none;
 color:white;
-padding:8px;
-border-radius:6px;
+padding:10px 14px;
+border-radius:8px;
 cursor:pointer;
 }
+
 </style>
+
 </head>
+
 <body>
 
-<!-- HEADER -->
 <div class="header">
 <div class="hamburger" onclick="toggleMenu()">☰</div>
 <div class="title">YOUNG TEE DAILY PLUGS</div>
 </div>
 
-<!-- SIDE MENU -->
+<!-- TECH MENU -->
+
 <div class="side-menu" id="menu">
-<div class="menu-item" onclick="selectSection('hat','HA TUNNEL FILES')">HA Tunnel Files</div>
-<div class="menu-item" onclick="selectSection('tls','TLS TUNNEL FILES')">TLS Tunnel Files</div>
-<div class="menu-item" onclick="selectSection('ink','LINKLAYER VPN FILES')">Linklayer VPN</div>
-<div class="menu-item" onclick="selectSection('hc','HTTP CUSTOM FILES')">HTTP Custom Files</div>
-<div class="menu-item" onclick="selectSection('tik','TIK TUNNEL PRO FILES')">TIK Tunnel Pro</div>
+
+<div class="menu-item" onclick="selectSection('hat','HA TUNNEL FILES')">🚀 HA Tunnel Files</div>
+<div class="menu-item" onclick="selectSection('tls','TLS TUNNEL FILES')">⚡ TLS Tunnel Files</div>
+<div class="menu-item" onclick="selectSection('ink','LINKLAYER VPN FILES')">🌐 Linklayer VPN</div>
+<div class="menu-item" onclick="selectSection('hc','HTTP CUSTOM FILES')">🔥 HTTP Custom Files</div>
+<div class="menu-item" onclick="selectSection('tik','TIK TUNNEL PRO FILES')">💎 TIK Tunnel Pro</div>
+
+<hr style="margin:15px;border-color:#333;">
+
+<!-- ✅ CONTACT LINKS FIXED -->
+
+<div class="menu-item" onclick="window.open('https://wa.me/27634179556','_blank')">
+📞 WhatsApp Contact
 </div>
 
-<!-- SECTION TITLE -->
+<div class="menu-item" onclick="window.open('https://t.me/youngtee59','_blank')">
+✈️ Telegram Contact
+</div>
+
+</div>
+
 <h2 id="sectionTitle">Select Section</h2>
 
-<!-- TUTORIAL VIDEO -->
 <div class="video">
-<iframe width="300" height="200" src="https://www.youtube.com/embed/RiVArs7gaos" frameborder="0" allowfullscreen></iframe>
+<iframe width="300" height="200"
+src="https://www.youtube.com/embed/RiVArs7gaos"
+frameborder="0" allowfullscreen></iframe>
 </div>
 
-<!-- SEARCH BAR -->
 <input class="search" placeholder="Search files..." oninput="searchFiles(this.value)">
 
-<!-- FILES -->
 <div class="container" id="files"></div>
 
 <script>
-/* MENU TOGGLE */
+
 function toggleMenu(){
 document.getElementById("menu").classList.toggle("active");
 }
 
-/* FILES DATA */
-let allFiles = [];
-let currentType = "";
-let currentSearch = "";
+let allFiles=[];
+let currentType="";
+let currentSearch="";
 
-/* SELECT SECTION */
 function selectSection(type,title){
-currentType = type;
-document.getElementById("sectionTitle").innerText = title;
+currentType=type;
+document.getElementById("sectionTitle").innerText=title;
 document.getElementById("menu").classList.remove("active");
 renderFiles();
 }
 
-/* SEARCH */
 function searchFiles(query){
-currentSearch = query.toLowerCase();
+currentSearch=query.toLowerCase();
 renderFiles();
 }
 
-/* FETCH FILES.JSON */
 fetch("files.json")
-.then(res => res.json())
-.then(data => {
-allFiles = data;
-// optionally load default section
+.then(res=>res.json())
+.then(data=>{
+allFiles=data;
 selectSection("hat","HA TUNNEL FILES");
 });
 
-/* RENDER FILES */
 function renderFiles(){
-let container = document.getElementById("files");
-container.innerHTML = "";
 
-let filtered = allFiles.filter(f=>{
-return f.type === currentType &&
+let container=document.getElementById("files");
+container.innerHTML="";
+
+let filtered=allFiles.filter(f=>{
+return f.type===currentType &&
 f.name.toLowerCase().includes(currentSearch);
 });
 
-if(filtered.length === 0){
-container.innerHTML = "<p style='text-align:center;'>No files found</p>";
+if(filtered.length===0){
+container.innerHTML="<p style='text-align:center;'>No files found</p>";
 return;
 }
 
 filtered.forEach(file=>{
-container.innerHTML += `
+container.innerHTML+=`
 <div class="file">
 <span>${file.name}</span>
 <button onclick="window.open('${file.link}')">Download</button>
-</div>
-`;
+</div>`;
 });
 }
+
 </script>
 
 </body>
