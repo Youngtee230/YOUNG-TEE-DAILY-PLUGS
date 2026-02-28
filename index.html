@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>YOUNG TEE DAILY PLUGS</title>
 
-<!-- ✅ GOOGLE ANALYTICS (FIXED) -->
+<!-- GOOGLE ANALYTICS -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MS98R2H51T"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -14,130 +14,152 @@ gtag('js', new Date());
 gtag('config', 'G-MS98R2H51T');
 </script>
 
-
-<!-- Google Fonts for nice fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
 body{
   margin:0;
-  font-family:'Montserrat', Arial, sans-serif;
+  font-family:'Montserrat', sans-serif;
   background:url("https://image2url.com/r2/default/files/1771438613233-6aa34042-6236-4dd2-b64b-335fb08030fd.jpg") no-repeat center center fixed;
   background-size:cover;
   color:white;
 }
 
-.overlay{
-  background:rgba(0,0,0,0.75);
-  min-height:100vh;
-  padding-bottom:40px;
+/* TITLE ON BACKGROUND */
+.title{
+  text-align:center;
+  font-family:'Roboto Slab', serif;
+  font-size:36px;
+  font-weight:700;
+  color:#00ffcc;
+  text-shadow:0 0 15px #00ffcc, 0 0 25px #00ffcc, 0 0 40px #00ffcc;
+  margin:20px 0 10px 0;
+  letter-spacing:1px;
 }
 
 /* HEADER */
 .header{
   display:flex;
   align-items:center;
-  padding:15px;
-  background:rgba(0,0,0,0.8);
-  box-shadow:0 0 15px #00ffcc;
+  justify-content:flex-start;
+  padding:10px 20px;
+  margin:0 20px 20px 20px;
+  border-radius:15px;
+  background:rgba(0,0,0,0.2);
+  box-shadow:0 0 25px #00ffcc;
+  backdrop-filter:blur(10px);
 }
 
+/* HAMBURGER */
 .hamburger{
-  font-size:26px;
-  cursor:pointer;
-  margin-right:15px;
-}
-
-.title{
-  font-family:'Roboto Slab', serif;
   font-size:28px;
-  font-weight:bold;
+  cursor:pointer;
   color:#00ffcc;
-  letter-spacing:1px;
+  text-shadow:0 0 10px #00ffcc;
 }
 
-/* SIDEBAR */
+/* SIDE MENU */
 .side-menu{
   position:fixed;
-  left:-260px;
+  left:-280px;
   top:0;
-  width:260px;
+  width:280px;
   height:100%;
-  background:#111;
-  transition:0.3s;
+  background:rgba(0,0,0,0.95);
+  backdrop-filter:blur(20px);
+  transition:0.35s;
   padding-top:60px;
   z-index:1000;
+  box-shadow:5px 0 25px #00ffcc;
+  border-top-right-radius:15px;
+  border-bottom-right-radius:15px;
 }
 
 .side-menu.active{ left:0; }
 
 .menu-item{
-  padding:15px;
+  padding:15px 20px;
   margin:10px;
-  background:#1c1c1c;
-  border-radius:8px;
+  background:rgba(255,255,255,0.05);
+  border-radius:12px;
   cursor:pointer;
   transition:0.3s;
-  font-family:'Montserrat', sans-serif;
   font-weight:600;
-  font-size:16px;
+  font-size:17px;
+  color:#00ffcc;
 }
 
 .menu-item:hover{
   background:#00ffcc;
   color:black;
-  box-shadow:0 0 15px #00ffcc;
+  box-shadow:0 0 20px #00ffcc;
 }
 
 /* SECTION TITLE */
 h2{
   text-align:center;
-  margin-top:20px;
+  margin:20px 0;
   font-family:'Roboto Slab', serif;
   font-size:28px;
   color:#00ffcc;
-  letter-spacing:1px;
+  text-shadow:0 0 15px #00ffcc, 0 0 25px #00ffcc;
 }
 
 /* SEARCH */
 .search{
   display:block;
   width:90%;
-  margin:15px auto;
-  padding:12px;
-  border-radius:20px;
+  margin:10px auto 20px;
+  padding:12px 20px;
+  border-radius:25px;
   border:none;
-  background:rgba(255,255,255,0.1);
+  background:rgba(0,0,0,0.2);
   color:white;
+  font-size:16px;
+  outline:none;
+  box-shadow:0 0 15px #00ffcc inset;
 }
 
 /* FILE CARDS */
 .container{
-  padding:15px;
+  padding:0 20px 30px;
 }
 
 .file{
-  background:rgba(255,255,255,0.1);
-  margin:10px 0;
-  padding:15px;
-  border-radius:12px;
+  background:rgba(0,0,0,0.3);
+  backdrop-filter:blur(10px);
+  margin:12px 0;
+  padding:18px;
+  border-radius:15px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  backdrop-filter:blur(6px);
+  transition:0.3s;
+  border:1px solid rgba(0,255,255,0.2);
+  box-shadow:0 0 10px rgba(0,255,255,0.3);
+}
+
+.file:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 25px #00ffcc;
 }
 
 .download-btn{
-  background:#00ffcc;
+  padding:10px 18px;
   border:none;
-  padding:8px 15px;
   border-radius:20px;
-  cursor:pointer;
   font-weight:bold;
+  background:linear-gradient(45deg,#00ffcc,#00aaff);
+  color:black;
+  cursor:pointer;
+  transition:0.3s;
+  box-shadow:0 0 10px #00ffcc;
 }
 
 .download-btn:hover{
-  box-shadow:0 0 20px #00ffcc;
+  transform:scale(1.05);
+  box-shadow:0 0 25px #00ffcc;
 }
 
 /* PREMIUM PAGE */
@@ -155,13 +177,14 @@ h2{
 }
 
 .card{
-  background:rgba(255,255,255,0.1);
+  background:rgba(0,0,0,0.5);
   padding:20px;
   margin:20px auto;
   width:90%;
   max-width:400px;
   border-radius:15px;
-  backdrop-filter:blur(10px);
+  backdrop-filter:blur(15px);
+  box-shadow:0 0 20px gold;
 }
 
 .btn{
@@ -174,16 +197,16 @@ h2{
   border-radius:30px;
   text-decoration:none;
   transition:0.3s;
-  box-shadow:0 0 10px #00ffcc;
+  box-shadow:0 0 15px #00ffcc;
 }
 
 .btn:hover{
-  box-shadow:0 0 25px #00ffcc;
   transform:scale(1.05);
+  box-shadow:0 0 25px #00ffcc;
 }
 
 footer{
-  margin-top:40px;
+  margin-top:30px;
   font-size:14px;
   opacity:0.7;
 }
@@ -192,78 +215,72 @@ footer{
 
 <body>
 
-<div class="overlay">
+<!-- TITLE ON BACKGROUND -->
+<div class="title">YOUNG TEE DAILY PLUGS</div>
 
+<!-- HEADER -->
 <div class="header">
   <div class="hamburger" onclick="toggleMenu()">☰</div>
-  <div class="title">YOUNG TEE DAILY PLUGS</div>
 </div>
 
+<!-- SIDE MENU -->
 <div class="side-menu" id="menu">
   <div class="menu-item" onclick="selectSection('hat','💎 HA TUNNEL FILES')">💎 HA Tunnel Files</div>
   <div class="menu-item" onclick="selectSection('tls','⚡ TLS TUNNEL FILES')">⚡ TLS Tunnel Files</div>
   <div class="menu-item" onclick="selectSection('hc','🔥 HTTP CUSTOM FILES')">🔥 HTTP Custom Files</div>
   <div class="menu-item" onclick="showPremium()">⭐ PREMIUM ACCESS</div>
+  <div class="menu-item" onclick="window.open('https://wa.me/27634179556','_blank')">📞 WhatsApp</div>
+  <div class="menu-item" onclick="window.open('https://t.me/youngtee59','_blank')">✈️ Telegram</div>
 </div>
 
+<!-- SECTION TITLE -->
 <h2 id="sectionTitle">💎 HA TUNNEL FILES</h2>
+
+<!-- SEARCH -->
 <input class="search" placeholder="Search files..." oninput="searchFiles(this.value)">
+
+<!-- FILES -->
 <div class="container" id="files"></div>
 
 <!-- PREMIUM PAGE -->
 <div class="premium-page" id="premiumPage">
+  <h1>YOUNG TEE DAILY PLUGS</h1>
+  <p>Official Download Centre</p>
+  <h2 class="premium-title">🔥 PREMIUM ACCESS 🔥</h2>
 
-<h1>YOUNG TEE DAILY PLUGS</h1>
-<p>Official Download Centre</p>
+  <div class="card">
+    <h3>7 DAYS PREMIUM ACCESS</h3>
+    <p>CELL C UNLIMITED OR TELKOM FILE</p>
+    <h2>R10.00</h2>
+    <a href="https://wa.me/27634179556" class="btn">Buy Now</a>
+  </div>
 
-<h2 class="premium-title">🔥 PREMIUM ACCESS 🔥</h2>
+  <div class="card">
+    <h3>14 DAYS PREMIUM ACCESS</h3>
+    <p>CELL C UNLIMITED OR TELKOM FILE</p>
+    <h2>R15.00</h2>
+    <a href="https://wa.me/27634179556" class="btn">Buy Now</a>
+  </div>
 
-<div class="card">
-<h3>7 DAYS PREMIUM ACCESS</h3>
-<p>CELL C UNLIMITED OR TELKOM FILE</p>
-<h2>R10.00</h2>
-<a href="https://wa.me/27634179556" class="btn">Buy Now</a>
-</div>
+  <div class="card">
+    <h3>30 DAYS PREMIUM ACCESS</h3>
+    <p>CELL C UNLIMITED OR TELKOM FILE</p>
+    <h2>R20.00</h2>
+    <a href="https://wa.me/27634179556" class="btn">Buy Now</a>
+  </div>
 
-<div class="card">
-<h3>14 DAYS PREMIUM ACCESS</h3>
-<p>CELL C UNLIMITED OR TELKOM FILE</p>
-<h2>R15.00</h2>
-<a href="https://wa.me/27634179556" class="btn">Buy Now</a>
-</div>
-
-<div class="card">
-<h3>30 DAYS PREMIUM ACCESS</h3>
-<p>CELL C UNLIMITED OR TELKOM FILE</p>
-<h2>R20.00</h2>
-<a href="https://wa.me/27634179556" class="btn">Buy Now</a>
-</div>
-
-<br><br>
-
-<a href="https://wa.me/27634179556" class="btn">Contact on WhatsApp</a>
-<br><br>
-<a href="https://t.me/youngtee59" class="btn">Join Telegram</a>
-
-<footer>
-© 2026 Young Teen Panels | All Rights Reserved
-</footer>
-
-<br><br>
-<button class="btn" onclick="hidePremium()">⬅ Back to Files</button>
-
-</div>
-
+  <br><br>
+  <a href="https://wa.me/27634179556" class="btn">Contact on WhatsApp</a>
+  <br><br>
+  <a href="https://t.me/youngtee59" class="btn">Join Telegram</a>
+  <br><br>
+  <button class="btn" onclick="hidePremium()">⬅ Back to Files</button>
 </div>
 
 <script>
-function toggleMenu(){
-  document.getElementById("menu").classList.toggle("active");
-}
+function toggleMenu(){ document.getElementById("menu").classList.toggle("active"); }
 
-let allFiles=[];
-let currentType="hat";
-let currentSearch="";
+let allFiles=[], currentType="hat", currentSearch="";
 
 function selectSection(type,title){
   currentType=type;
@@ -274,10 +291,7 @@ function selectSection(type,title){
   renderFiles();
 }
 
-function searchFiles(q){
-  currentSearch=q.toLowerCase();
-  renderFiles();
-}
+function searchFiles(q){ currentSearch=q.toLowerCase(); renderFiles(); }
 
 function showPremium(){
   document.getElementById("files").style.display="none";
@@ -292,6 +306,7 @@ function hidePremium(){
   document.getElementById("sectionTitle").innerText="💎 HA TUNNEL FILES";
 }
 
+// FETCH FILES
 fetch("files.json")
 .then(res=>res.json())
 .then(data=>{
@@ -324,8 +339,7 @@ function renderFiles(){
 }
 </script>
 
-</script>
-<!-- Adsterra Ad -->
+<!-- Adsterra -->
 <script src="https://pl28666673.effectivegatecpm.com/64/dd/37/64dd37a14121a6faa52c6a38719e8121.js"></script>
 
 </body>
