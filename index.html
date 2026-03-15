@@ -4,7 +4,6 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>YOUNG TEE DAILY PLUGS</title>
 
 <!-- GOOGLE ANALYTICS -->
@@ -33,7 +32,6 @@ color:white;
 }
 
 /* NAVBAR */
-
 .navbar{
 height:60px;
 display:flex;
@@ -57,7 +55,6 @@ cursor:pointer;
 }
 
 /* SIDEBAR */
-
 .sidebar{
 position:fixed;
 left:-260px;
@@ -78,48 +75,28 @@ left:0;
 .menu-item{
 padding:15px 20px;
 cursor:pointer;
-display:flex;
-align-items:center;
-gap:10px;
 }
 
 .menu-item:hover{
 background:#1e293b;
 }
 
-.menu-icon{
-width:22px;
-height:22px;
-}
-
 /* PAGE */
-
 .page{
 padding:20px;
 }
 
 .page-title{
-display:flex;
-align-items:center;
-gap:8px;
 margin-bottom:15px;
 font-size:20px;
 }
 
-.heading-icon{
-width:24px;
-height:24px;
-}
-
-/* FILE GRID */
-
+/* FILES */
 .files{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:15px;
 }
-
-/* FILE CARD */
 
 .file-card{
 background:#020617;
@@ -133,18 +110,7 @@ padding:12px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:linear-gradient(90deg,#1e293b,#0f172a);
-}
-
-.file-left{
-display:flex;
-align-items:center;
-gap:8px;
-}
-
-.file-icon{
-width:22px;
-height:22px;
+background:#1e293b;
 }
 
 .badge{
@@ -152,11 +118,6 @@ padding:4px 8px;
 font-size:11px;
 border-radius:20px;
 background:#2563eb;
-}
-
-.file-body{
-padding:12px;
-font-size:14px;
 }
 
 .download{
@@ -168,7 +129,6 @@ background:#2563eb;
 border-radius:8px;
 color:white;
 text-decoration:none;
-font-weight:500;
 }
 
 .download:hover{
@@ -176,9 +136,9 @@ background:#1d4ed8;
 }
 
 /* PREMIUM */
-
 .premium-section{
 margin-top:30px;
+display:none;
 }
 
 .premium-title{
@@ -187,39 +147,18 @@ margin-bottom:20px;
 color:gold;
 }
 
-.premium-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:15px;
-}
-
 .card{
 background:#020617;
 border:1px solid gold;
 border-radius:12px;
 padding:20px;
 text-align:center;
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-5px);
-box-shadow:0 0 15px rgba(255,215,0,0.3);
-}
-
-.card h3{
-margin-bottom:10px;
-}
-
-.card p{
-font-size:13px;
-color:#cbd5e1;
-margin-bottom:10px;
+margin-bottom:15px;
 }
 
 .card h2{
 color:gold;
-margin-bottom:15px;
+margin:10px 0;
 }
 
 .btn{
@@ -228,14 +167,8 @@ padding:10px 18px;
 background:gold;
 color:black;
 border-radius:8px;
-font-weight:600;
 text-decoration:none;
-transition:0.3s;
-}
-
-.btn:hover{
-background:#ffd700;
-box-shadow:0 0 10px gold;
+font-weight:600;
 }
 
 </style>
@@ -250,62 +183,38 @@ box-shadow:0 0 10px gold;
 
 <div class="sidebar" id="menu">
 
-<div class="menu-item" onclick="selectSection('hat','HA TUNNEL FILES')">
-<img src="https://on.bwmxmd.co.ke/h2tob8.jpg" class="menu-icon">
-HA TUNNEL FILES
-</div>
-
-<div class="menu-item" onclick="selectSection('tls','TLS TUNNEL FILES')">
-<img src="https://on.bwmxmd.co.ke/g791vt.png" class="menu-icon">
-TLS TUNNEL FILES
-</div>
-
-<div class="menu-item" onclick="selectSection('hc','HTTP CUSTOM FILES')">
-🌐 HTTP CUSTOM FILES
-</div>
-
-<div class="menu-item" onclick="selectSection('ll','LINKLAYER VPN FILES')">
-🔗 LINKLAYER VPN FILES
-</div>
-
-<div class="menu-item" onclick="showPremium()">
-⭐ PREMIUM ACCESS
-</div>
+<div class="menu-item" onclick="selectSection('hat','HA TUNNEL FILES')">HA TUNNEL FILES</div>
+<div class="menu-item" onclick="selectSection('tls','TLS TUNNEL FILES')">TLS TUNNEL FILES</div>
+<div class="menu-item" onclick="selectSection('hc','HTTP CUSTOM FILES')">HTTP CUSTOM FILES</div>
+<div class="menu-item" onclick="selectSection('lnk','LINKLAYER VPN FILES')">LINKLAYER VPN FILES</div>
+<div class="menu-item" onclick="showPremium()">⭐ PREMIUM ACCESS</div>
 
 </div>
 
 <div class="page">
 
-<h2 class="page-title" id="sectionTitle">
-<img src="https://on.bwmxmd.co.ke/h2tob8.jpg" class="heading-icon">
-HA TUNNEL FILES
-</h2>
+<h2 class="page-title" id="sectionTitle">HA TUNNEL FILES</h2>
 
 <div class="files" id="files"></div>
 
-<div class="premium-section" id="premiumSection" style="display:none;">
+<div class="premium-section" id="premiumSection">
 
 <h2 class="premium-title">⭐ PREMIUM ACCESS ⭐</h2>
 
-<div class="premium-grid">
-
 <div class="card">
 <h3>7 DAYS PREMIUM</h3>
-<p>CELL C OR TELKOM FILE</p>
 <h2>R10.00</h2>
 <a href="https://wa.me/27634179556" target="_blank" class="btn">Buy Now</a>
 </div>
 
 <div class="card">
 <h3>14 DAYS PREMIUM</h3>
-<p>CELL C OR TELKOM FILE</p>
 <h2>R15.00</h2>
 <a href="https://wa.me/27634179556" target="_blank" class="btn">Buy Now</a>
 </div>
 
 <div class="card">
 <h3>30 DAYS PREMIUM</h3>
-<p>CELL C OR TELKOM FILE</p>
 <h2>R20.00</h2>
 <a href="https://wa.me/27634179556" target="_blank" class="btn">Buy Now</a>
 </div>
@@ -314,9 +223,7 @@ HA TUNNEL FILES
 
 </div>
 
-</div>
-
-<!-- AD SCRIPT -->
+<!-- ADSTERra -->
 <script src="https://pl28666673.effectivegatecpm.com/64/dd/37/64dd37a14121a6faa52c6a38719e8121.js"></script>
 
 <script>
@@ -325,55 +232,70 @@ function toggleMenu(){
 document.getElementById("menu").classList.toggle("active");
 }
 
-let allFiles=[];
+function closeMenu(){
+document.getElementById("menu").classList.remove("active");
+}
+
 let currentType="hat";
 
 function selectSection(type,title){
 
 currentType=type;
 
-let icon="";
-
-if(type==="hat"){
-icon='<img src="https://on.bwmxmd.co.ke/h2tob8.jpg" class="heading-icon">';
-}
-
-if(type==="tls"){
-icon='<img src="https://on.bwmxmd.co.ke/g791vt.png" class="heading-icon">';
-}
-
-if(type==="hc"){
-icon='🌐';
-}
-
-if(type==="ll"){
-icon='🔗';
-}
-
-document.getElementById("sectionTitle").innerHTML=icon+" "+title;
-
-document.getElementById("menu").classList.remove("active");
+document.getElementById("sectionTitle").innerText=title;
 
 document.getElementById("premiumSection").style.display="none";
 
-renderFiles();
+closeMenu();
+
+loadFiles();
 }
 
 function showPremium(){
 
-document.getElementById("menu").classList.remove("active");
+closeMenu();
 
 document.getElementById("files").innerHTML="";
 
 document.getElementById("premiumSection").style.display="block";
 
 document.getElementById("sectionTitle").innerText="⭐ PREMIUM ACCESS";
+
 }
 
-function renderFiles(){
+function loadFiles(){
+
+fetch("./files.json")
+.then(res=>res.json())
+.then(data=>{
+
 let container=document.getElementById("files");
 container.innerHTML="";
+
+data.forEach(file=>{
+
+if(file.type===currentType){
+
+let card=document.createElement("div");
+card.className="file-card";
+
+card.innerHTML=`
+<div class="file-header">
+<span>${file.name}</span>
+<span class="badge">${file.badge || ""}</span>
+</div>
+<a href="${file.link}" target="_blank" class="download">Download</a>
+`;
+
+container.appendChild(card);
 }
+
+});
+
+});
+}
+
+selectSection("hat","HA TUNNEL FILES");
 
 </script>
 
