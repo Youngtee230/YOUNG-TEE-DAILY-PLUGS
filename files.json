@@ -106,13 +106,13 @@
   "name": "7️⃣.MTNSA🇿🇦 500MB MONTHLY📶",
   "link": "https://www.mediafire.com/file/9472kpe5mae1zcw/MTNSA%25F0%259F%2587%25BF%25F0%259F%2587%25A6500MB_MONTHLY_.hat/file",
   "type": "hat",
-  "badge": "WORKING"
+  "badge": "EXPIRED"
   },
   {
   "name": "8️⃣.MTNSA🇿🇦 1GB MONTHLY📶",
   "link": "https://www.mediafire.com/file/04wb7te5h38xyqm/MTNSA%25F0%259F%2587%25BF%25F0%259F%2587%25A61GB_MONTHLY.tls/file",
   "type": "tls",
-  "badge": "WORKING"
+  "badge": "EXPIRED"
   },
   {
   "name": "3️⃣.MTNSA🇿🇦 500MB MONTHLY📶",
@@ -124,7 +124,7 @@
   "name": "9️⃣.MTNSA🇿🇦 1GB DAILY📶",
   "link": "https://www.mediafire.com/file/sb1imueamswmvtn/MTNSA%25F0%259F%2587%25BF%25F0%259F%2587%25A61GB_DAILY%255BYOUNG_TEE%255D_%25281%2529.tls/file",
   "type": "tls",
- "badge": "WORKING"
+ "badge": "EXPIRED"
   },
   {
   "name": "4️⃣.MTNSA🇿🇦 1GB DAILY📶",
@@ -148,13 +148,13 @@
   "name": "8️⃣.MTN-ZA🇿🇦 100MB DAILY📶",
   "link": "https://www.mediafire.com/file/pmgf5avlptizdhu/MTNSA%25F0%259F%2587%25BF%25F0%259F%2587%25A6100MB_DIALY_.hat/file",
   "type": "hat",
-  "badge": "WORKING"
+  "badge": "EXPIRED"
   },
   {
   "name": "1️⃣0️⃣.MTNSA🇿🇦 100MB DAILY📶",
   "link": "https://www.mediafire.com/file/j2tyu5sg8yax3l4/MTN-ZA%25F0%259F%2587%25BF%25F0%259F%2587%25A6100MB_DAILY%25E2%2598%25A0%25EF%25B8%258F.tls/file",
   "type": "tls",
-  "badge": "WORKING"
+  "badge": "EXPIRED"
   },
   {
   "name": "9️⃣.MTNSA-🇿🇦 300MB DAILY📶",
@@ -172,12 +172,24 @@
   "name": "1️⃣1️⃣.MTNSA🇿🇦 500MB DAILY 📶",
   "link": "https://www.mediafire.com/file/hnmtu5285aws6bz/MTNSA%25F0%259F%2587%25BF%25F0%259F%2587%25A6500MB_DALY%25F0%259F%2594%25A5.hat/file",
   "type": "hat",
-  "badge": "NEW"
+  "badge": "EXPIRED"
   },
   {
   "name": "1️⃣1️⃣.MTN-ZA🇿🇦 500MB DIALY 📶",
   "link": "https://www.mediafire.com/file/2h09nzdsxiplrsj/MTN-ZA%25F0%259F%2587%25BF%25F0%259F%2587%25A6500MB_DAILY%25E2%2598%25A0%25EF%25B8%258F.tls/file",
   "type": "tls",
+  "badge": "EXPIRED"
+  },
+    {
+  "name": "5️⃣.VODACOMSA🇿🇦 UNLIMITED📶",
+  "link": "https://www.mediafire.com/file/e3ekpvpt2lqr8cs/VODACOMSA%25F0%259F%2587%25BF%25F0%259F%2587%25A6UNLIMITED_%255BYOUNG_TEE%255D.hc_%25281%2529/file",
+  "type": "hc",
+  "badge": "NEW"
+  },
+    {
+  "name": "5️⃣.MTN-ZA🇿🇦 100MB DAILY📶",
+  "link": "https://www.mediafire.com/file/f8wtm2xoa1l3v5s/MTNSA%25F0%259F%2587%25BF%25F0%259F%2587%25A6100MB_DAILY%255BYOUNG_TEE%255D.hat/file",
+  "type": "hat",
   "badge": "NEW"
   }
 ]
