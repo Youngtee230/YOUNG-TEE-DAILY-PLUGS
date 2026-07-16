@@ -4,6 +4,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>YOUNG TEE DAILY PLUGS</title>
 
 <!-- GOOGLE ANALYTICS -->
@@ -15,7 +16,7 @@ gtag('js', new Date());
 gtag('config', 'G-MS98R2H51T');
 </script>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -23,223 +24,469 @@ gtag('config', 'G-MS98R2H51T');
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Poppins, sans-serif;
+font-family:'Poppins',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
 }
 
 body{
-background:#0f172a;
-color:white;
+background:
+radial-gradient(circle at top,#2563eb33,transparent 40%),
+linear-gradient(180deg,#020617,#0f172a);
+color:#fff;
+min-height:100vh;
 }
 
 /* NAVBAR */
+
 .navbar{
-height:60px;
-display:flex;
-align-items:center;
-justify-content:center;
-position:relative;
-background:#020617;
-border-bottom:1px solid #1e293b;
-}
-
-.logo{
-font-size:18px;
-font-weight:600;
-}
-
-.hamburger{
-position:absolute;
-left:20px;
-font-size:22px;
-cursor:pointer;
-}
-
-/* SIDEBAR */
-.sidebar{
-position:fixed;
-left:-260px;
+position:sticky;
 top:0;
-width:260px;
-height:100%;
-background:#020617;
-border-right:1px solid #1e293b;
-transition:0.3s;
-padding-top:60px;
-z-index:1000;
-}
-
-.sidebar.active{
-left:0;
-}
-
-.menu-item{
-padding:15px 20px;
-cursor:pointer;
-}
-
-.menu-item:hover{
-background:#1e293b;
-}
-
-/* PAGE */
-.page{
-padding:20px;
-}
-
-.page-title{
-margin-bottom:15px;
-font-size:20px;
-}
-
-/* FILES */
-.files{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:15px;
-}
-
-.file-card{
-background:#020617;
-border:1px solid #1e293b;
-border-radius:12px;
-overflow:hidden;
-}
-
-.file-header{
-padding:12px;
+z-index:999;
 display:flex;
 justify-content:space-between;
 align-items:center;
+padding:18px 25px;
+background:rgba(2,6,23,.85);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+font-size:22px;
+font-weight:700;
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo span:first-child{
+font-size:28px;
+}
+
+/* HERO */
+
+.hero{
+padding:45px 20px;
+text-align:center;
+}
+
+.hero h1{
+font-size:34px;
+font-weight:700;
+margin-bottom:10px;
+}
+
+.hero p{
+color:#cbd5e1;
+font-size:15px;
+margin-bottom:30px;
+}
+
+.hero-stats{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.stat{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+padding:18px;
+border-radius:18px;
+min-width:100px;
+}
+
+.stat h2{
+font-size:24px;
+color:#3b82f6;
+}
+
+.stat span{
+font-size:13px;
+color:#94a3b8;
+}
+
+/* SEARCH */
+
+.search-box{
+padding:0 20px 20px;
+}
+
+.search-box input{
+width:100%;
+padding:15px;
+background:#111827;
+border:none;
+outline:none;
+border-radius:15px;
+color:#fff;
+font-size:15px;
+}
+
+/* CATEGORY BUTTONS */
+
+.tabs{
+display:flex;
+gap:10px;
+overflow-x:auto;
+padding:0 20px 20px;
+}
+
+.tabs::-webkit-scrollbar{
+display:none;
+}
+
+.tab{
+border:none;
+padding:10px 18px;
+border-radius:30px;
 background:#1e293b;
+color:white;
+cursor:pointer;
+white-space:nowrap;
+transition:.3s;
+}
+
+.tab:hover{
+background:#2563eb;
+}
+
+.tab.active{
+background:#2563eb;
+}
+
+/* PAGE */
+
+.page{
+padding:20px;
+max-width:1200px;
+margin:auto;
+}
+
+.page-title{
+text-align:center;
+margin-bottom:25px;
+font-size:28px;
+font-weight:700;
+}
+
+/* FILE GRID */
+
+.files{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+}
+
+/* FILE CARD */
+
+.file-card{
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.08);
+border-radius:20px;
+overflow:hidden;
+transition:.3s;
+box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+.file-card:hover{
+transform:translateY(-6px);
+border-color:#3b82f6;
+}
+
+.file-header{
+padding:18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,.04);
+font-weight:600;
 }
 
 .badge{
-padding:4px 8px;
-font-size:11px;
+padding:5px 10px;
 border-radius:20px;
 background:#2563eb;
+font-size:11px;
 }
 
 .download{
-display:block;
-margin:12px;
-padding:10px;
-text-align:center;
-background:#2563eb;
-border-radius:8px;
-color:white;
+display:inline-flex;
+justify-content:center;
+align-items:center;
+margin:15px;
+padding:10px 18px;
+background:linear-gradient(90deg,#2563eb,#3b82f6);
+border-radius:30px;
 text-decoration:none;
+color:white;
+font-weight:600;
+transition:.3s;
 }
 
 .download:hover{
-background:#1d4ed8;
+transform:scale(1.05);
 }
 
-/* PREMIUM */
 .premium-section{
-margin-top:30px;
 display:none;
+margin-top:30px;
 }
 
 .premium-title{
 text-align:center;
-margin-bottom:20px;
-color:gold;
+font-size:28px;
+margin-bottom:10px;
+color:#facc15;
+}
+
+.premium-subtitle{
+text-align:center;
+color:#cbd5e1;
+margin-bottom:30px;
+}
+
+.pricing-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
 
 .card{
-background:#020617;
-border:1px solid gold;
-border-radius:12px;
-padding:20px;
+background:linear-gradient(180deg,#111827,#020617);
+border:1px solid #facc15;
+border-radius:20px;
+padding:25px;
 text-align:center;
-margin-bottom:15px;
+transition:.3s;
+position:relative;
 }
 
-.card h2{
-color:gold;
-margin:10px 0;
+.card:hover{
+transform:translateY(-8px);
+}
+
+.popular{
+position:absolute;
+top:-12px;
+left:50%;
+transform:translateX(-50%);
+background:#facc15;
+color:black;
+padding:5px 12px;
+border-radius:20px;
+font-size:12px;
+font-weight:700;
 }
 
 .btn{
 display:inline-block;
-padding:10px 18px;
-background:gold;
+margin-top:15px;
+padding:12px 24px;
+background:linear-gradient(90deg,#facc15,#f59e0b);
 color:black;
-border-radius:8px;
 text-decoration:none;
-font-weight:600;
+border-radius:30px;
+font-weight:700;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+width:60px;
+height:60px;
+border-radius:50%;
+background:#25D366;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:28px;
+text-decoration:none;
+box-shadow:0 10px 25px rgba(0,0,0,.35);
+z-index:999;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:28px;
+}
+
+.page-title{
+font-size:22px;
+}
+
+.files{
+grid-template-columns:1fr;
+}
+
 }
 
 </style>
 </head>
-
 <body>
 
-<div class="navbar">
-<div class="hamburger" onclick="toggleMenu()">☰</div>
-<div class="logo">YOUNG TEE DAILY PLUGS</div>
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo">
+        <span>⚡</span>
+        <span>YOUNG TEE DAILY PLUGS</span>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Daily VPN Configs</h1>
+    <p>Fast • Reliable • Updated Every Day</p>
+
+    <div class="hero-stats">
+        <div class="stat">
+            <h2 id="fileCount">0</h2>
+            <span>Files</span>
+        </div>
+
+        <div class="stat">
+            <h2>24/7</h2>
+            <span>Support</span>
+        </div>
+
+        <div class="stat">
+            <h2>⚡</h2>
+            <span>Speed</span>
+        </div>
+    </div>
+</section>
+
+<!-- SEARCH -->
+<div class="search-box">
+    <input
+        type="text"
+        id="search"
+        placeholder="🔍 Search VPN files...">
 </div>
 
-<div class="sidebar" id="menu">
+<!-- TABS -->
+<div class="tabs">
 
-<div class="menu-item" onclick="selectSection('hat','HA TUNNEL FILES')">HA TUNNEL FILES</div>
-<div class="menu-item" onclick="selectSection('tls','TLS TUNNEL FILES')">TLS TUNNEL FILES</div>
-<div class="menu-item" onclick="selectSection('hc','HTTP CUSTOM FILES')">HTTP CUSTOM FILES</div>
-<div class="menu-item" onclick="selectSection('ink','LINKLAYER VPN FILES')">LINKLAYER VPN FILES</div>
-<div class="menu-item" onclick="showPremium()">⭐ PREMIUM ACCESS</div>
+<button class="tab active"
+onclick="selectSection('hat','HA TUNNEL FILES',this)">
+HA Tunnel
+</button>
+
+<button class="tab"
+onclick="selectSection('tls','TLS TUNNEL FILES',this)">
+TLS Tunnel
+</button>
+
+<button class="tab"
+onclick="selectSection('hc','HTTP CUSTOM FILES',this)">
+HTTP Custom
+</button>
+
+<button class="tab"
+onclick="selectSection('ink','LINKLAYER VPN FILES',this)">
+LinkLayer
+</button>
+
+<button class="tab"
+onclick="showPremium(this)">
+⭐ Premium
+</button>
 
 </div>
 
 <div class="page">
 
-<h2 class="page-title" id="sectionTitle">HA TUNNEL FILES</h2>
+<h2 class="page-title" id="sectionTitle">
+HA TUNNEL FILES
+</h2>
 
 <div class="files" id="files"></div>
 
 <div class="premium-section" id="premiumSection">
 
-<h2 class="premium-title">⭐ PREMIUM ACCESS ⭐   
-VODACOM AND TELKOM UNLIMITED</h2>
+<h2 class="premium-title">
+⭐ PREMIUM ACCESS
+</h2>
+
+<p class="premium-subtitle">
+Unlimited Vodacom & Telkom VPN Configs
+</p>
+
+<div class="pricing-grid">
 
 <div class="card">
-<h3>7 DAYS PREMIUM</h3>
-<h2>R30.00</h2>
-<a href="https://wa.me/27634179556" target="_blank" class="btn">Buy Now</a>
+<h3>7 DAYS</h3>
+<h2>R30</h2>
+
+<a href="https://wa.me/27634179556"
+target="_blank"
+class="btn">
+Buy Now
+</a>
+
 </div>
 
 <div class="card">
-<h3>14 DAYS PREMIUM</h3>
-<h2>R40.00</h2>
-<a href="https://wa.me/27634179556" target="_blank" class="btn">Buy Now</a>
+
+<div class="popular">
+POPULAR
+</div>
+
+<h3>14 DAYS</h3>
+
+<h2>R40</h2>
+
+<a href="https://wa.me/27634179556"
+target="_blank"
+class="btn">
+Buy Now
+</a>
+
 </div>
 
 <div class="card">
-<h3>30 DAYS PREMIUM</h3>
-<h2>R60.00</h2>
-<a href="https://wa.me/27634179556" target="_blank" class="btn">Buy Now</a>
-</div>
+
+<h3>30 DAYS</h3>
+
+<h2>R60</h2>
+
+<a href="https://wa.me/27634179556"
+target="_blank"
+class="btn">
+Buy Now
+</a>
 
 </div>
 
 </div>
 
-<!-- ADSTERra -->
+</div>
+
+</div>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/27634179556"
+target="_blank"
+class="whatsapp">
+💬
+</a>
+
+<!-- ADSTERRA -->
 <script src="https://pl28666673.effectivegatecpm.com/64/dd/37/64dd37a14121a6faa52c6a38719e8121.js"></script>
 
 <script>
 
-function toggleMenu(){
-document.getElementById("menu").classList.toggle("active");
-}
+let currentType = "hat";
 
-function closeMenu(){
-document.getElementById("menu").classList.remove("active");
-}
-
-let currentType="hat";
-
-function selectSection(type,title){
+function selectSection(type,title,btn){
 
 currentType=type;
 
@@ -247,56 +494,119 @@ document.getElementById("sectionTitle").innerText=title;
 
 document.getElementById("premiumSection").style.display="none";
 
-closeMenu();
+document.getElementById("files").style.display="grid";
+
+document.querySelectorAll(".tab").forEach(tab=>{
+tab.classList.remove("active");
+});
+
+if(btn) btn.classList.add("active");
 
 loadFiles();
+
 }
 
-function showPremium(){
+function showPremium(btn){
 
-closeMenu();
-
-document.getElementById("files").innerHTML="";
+document.getElementById("files").style.display="none";
 
 document.getElementById("premiumSection").style.display="block";
 
 document.getElementById("sectionTitle").innerText="⭐ PREMIUM ACCESS";
+
+document.querySelectorAll(".tab").forEach(tab=>{
+tab.classList.remove("active");
+});
+
+if(btn) btn.classList.add("active");
 
 }
 
 function loadFiles(){
 
 fetch("./files.json")
+
 .then(res=>res.json())
+
 .then(data=>{
 
 let container=document.getElementById("files");
+
 container.innerHTML="";
+
+let total=0;
 
 data.forEach(file=>{
 
 if(file.type===currentType){
 
+total++;
+
 let card=document.createElement("div");
+
 card.className="file-card";
 
 card.innerHTML=`
+
 <div class="file-header">
-<span>${file.name}</span>
-<span class="badge">${file.badge || ""}</span>
+
+<span>📄 ${file.name}</span>
+
+<span class="badge">
+
+${file.badge || "NEW"}
+
+</span>
+
 </div>
-<a href="${file.link}" target="_blank" class="download">Download</a>
+
+<div style="padding:15px;">
+
+<a href="${file.link}"
+
+target="_blank"
+
+class="download">
+
+⬇ Download
+
+</a>
+
+</div>
+
 `;
 
 container.appendChild(card);
+
 }
 
 });
 
+document.getElementById("fileCount").innerText=total;
+
 });
+
 }
 
-selectSection("hat","HA TUNNEL FILES");
+document.getElementById("search").addEventListener("keyup",function(){
+
+let value=this.value.toLowerCase();
+
+document.querySelectorAll(".file-card").forEach(card=>{
+
+card.style.display=
+
+card.innerText.toLowerCase().includes(value)
+
+? ""
+
+: "none";
+
+});
+
+});
+
+loadFiles();
 
 </script>
 
